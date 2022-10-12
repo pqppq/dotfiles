@@ -196,4 +196,4 @@ sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=
 sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=
 sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=
 
-let g:python3_host_prog = '/root/.asdf/installs/python/3.9.9/bin/python'
+let g:python3_host_prog = '~/.asdf/installs/python/3.9.9/bin/python'

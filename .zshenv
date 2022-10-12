@@ -1,3 +1,4 @@
+alias nvim=PATH_TO_NVIM
 alias v=nvim
 alias fd=fdfind
 

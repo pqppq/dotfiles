@@ -6,7 +6,7 @@ let s:dein_dir           = '~/.cache/dein/repos/github.com'
 let s:dein_repo_dir      = s:dein_dir . '/Shougo/dein.vim'
 execute 'set runtimepath+=' . s:dein_repo_dir
 
-let s:toml_dir           = '~/repository/config/nvim/.dein/'
+let s:toml_dir           = '~/dotfiles/.config/nvim/.dein/'
 
 let s:defx_nvim          = s:toml_dir . 'defx-nvim.toml'
 let s:denite_nvim        = s:toml_dir . 'denite-nvim.toml'
@@ -51,6 +51,7 @@ let s:colorscheme_plugins = s:toml_dir . 'colorscheme-plugins.toml'
 " let s:copilot_vim        = s:toml_dir . 'copilot-vim.toml'
 " let s:vdebug             = s:toml_dir . 'vdebug.toml'
 " let s:language_client_neovim = s:dir . '/language-client-neovim.toml'
+let s:toggleterm_nvim = s:toml_dir . '/toggleterm-nvim.toml'
 
 
 if dein#load_state(s:dein_dir)
@@ -97,6 +98,7 @@ if dein#load_state(s:dein_dir)
 	call dein#load_toml(s:vim_better_whitespace)
 	call dein#load_toml(s:octo_nvim)
 	call dein#load_toml(s:colorscheme_plugins)
+	call dein#load_toml(s:toggleterm_nvim)
 
 	call dein#end()
 	call dein#save_state()

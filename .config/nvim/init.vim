@@ -37,7 +37,6 @@ let s:vim_repeat         = s:toml_dir . 'vim-repeat.toml'
 let s:denops_vim         = s:toml_dir . 'denops-vim.toml'
 let s:luasnip            = s:toml_dir . 'luasnip.toml'
 let s:nvim_autopairs     = s:toml_dir . 'nvim-autopairs.toml'
-let s:nightfox           = s:toml_dir . 'nightfox-nvim.toml'
 let s:trouble_nvim       = s:toml_dir . 'trouble-nvim.toml'
 let s:plenary_nvim			 = s:toml_dir . 'plenary-nvim.toml'
 let s:nvim_treesitter	   = s:toml_dir . 'nvim-treesitter.toml'
@@ -95,7 +94,6 @@ if dein#load_state(s:dein_dir)
 	call dein#load_toml(s:vim_fugitive)
 	" call dein#load_toml(s:vim_gitgutter)
 	call dein#load_toml(s:gitsigns_nvim)
-	call dein#load_toml(s:nightfox)
 	call dein#load_toml(s:vim_better_whitespace)
 	call dein#load_toml(s:octo_nvim)
 	call dein#load_toml(s:colorscheme_plugins)
@@ -136,8 +134,7 @@ nnoremap dw daw
 
 filetype plugin indent on
 scriptencoding utf-8
-" colorscheme hybrid
-colorscheme duskfox
+colorscheme tender
 
 set path+=$PWD/**
 set inccommand=split

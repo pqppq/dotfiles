@@ -1,6 +1,7 @@
-!/bin/bash
+#!/bin/bash
 
 # temporally setup script
-ln -s ./.zshrc ~/.zshrc
-ln -s ./.zshenv ~/.zshenv
-ln -s ./.tmux.conf ~/.tmux.conf
+dir="$(pwd)"
+ln -s "$dir"/.zshrc ~/.zshrc
+ln -s "$dir"/.zshenv ~/.zshenv
+ln -s "$dir"/.tmux.conf ~/.tmux.conf

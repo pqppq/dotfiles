@@ -1,0 +1,59 @@
+{
+  "coc.preferences.hoverTarget": "float",
+  "coc.preferences.previewAutoClose": false,
+  "coc.preferences.snippets.enable": true,
+  "coc.preferences.silentAutoupdate": true,
+  "coc.preferences.useQuickfixForLocations": true,
+  //
+  //
+  "signature.enable": true,
+  "signature.preferShownAbove": false,
+  "signature.hideOnTextChange": true,
+  "signature.target": "float",
+  //
+  "diagnostic.displayByAle": true,
+  "diagnostic.enable": true,
+  //
+  "suggest.echodocSupport": true,
+  "suggest.enablePreview": true,
+  "suggest.snippetIndicator": "~",
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.timeout": 1000,
+  //
+  "typescript.suggest.classMemberSnippets.enabled": true,
+  "typescript.suggest.autoImports": true,
+  "typescript.suggest.importStatements": true,
+  "typescript.suggestionActions.enabled": true,
+  "typescript.suggest.completeFunctionCalls": true,
+  "typescript.updateImportsOnFileMove.enable": true,
+  "typescript.preferences.includePackageJsonAutoImports": "auto",
+  //
+  "java.home": "/usr/lib/jvm/java-14-openjdk-amd64",
+  "java.format.enabled": false,
+  "java.codeGeneration.generateComments": true,
+  //
+  "python.jediEnabled": false,
+  "python.linting.enabled": false,
+  "python.autoComplete.addBrackets": true,
+  "python.autoUpdateLanguageServer": true,
+  "python.analysis.diagnosticEnabled": true,
+  //
+  "deno.enabled": true,
+  "deno.path": "~/.deno/bin/deno",
+  "deno.lint": true,
+  "deno.suggest.imports.hosts": {
+    "https://deno.land": true
+  },
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"]
+    },
+    "rust": {
+      "command": "rust-analyzer",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
+    }
+  }
+}

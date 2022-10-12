@@ -1,0 +1,2 @@
+[[plugins]]
+repo = 'tomlion/vim-solidity'

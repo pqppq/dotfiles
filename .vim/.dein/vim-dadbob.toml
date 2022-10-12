@@ -1,0 +1,39 @@
+[[plugins]]
+repo='tpope/vim-dadbod'
+hook_add = '''
+	" Default Key Mappings
+	" <Plug>(DBUI_SelectLine)         o
+	" <Plug>(DBUI_SelectLineVsplit)   S
+	" <Plug>(DBUI_DeleteLine)         d
+	" <Plug>(DBUI_JumpToForeignKey)   <C-]>
+	" <Plug>(DBUI_AddConnection)      A
+	" <Plug>(DBUI_ToggleDetails)
+	" <Plug>(DBUI_Redraw)             R
+	" <Plug>(DBUI_RenameLine)         r
+	" <Plug>(DBUI_SaveQuery)
+	" <Plug>(DBUI_ExecuteQuery)       <Leader>S
+	" <Plug>(DBUI_ToggleResultLayout) <Leader>R
+	" <Plug>(DBUI_EditBindParameters) <Leader>E
+	" <Plug>(DBUI_Quit)               q
+	" <Plug>(DBUI_GotoFirstSibling)   <C-k>
+	" <Plug>(DBUI_GotoLastSibling)    <C-j>
+	" <Plug>(DBUI_GotoPrevSibling)    K
+	" <Plug>(DBUI_GotoNextSibling)    J
+	" <Plug>(DBUI_GotoParentNode)     <C-p>
+	" <Plug>(DBUI_GotoChildNode)      <C-n>
+
+'''
+
+[[plugins]]
+repo='kristijanhusak/vim-dadbod-ui'
+hook_add = '''
+
+	let g:dbs = [
+	\ {'name': 'postgres', 'url': 'postgres://postgres:postgres@localhost:5432/postgres'},
+	\ ]
+
+
+'''
+
+[[plugins]]
+repo='kristijanhusak/vim-dadbod-completion'

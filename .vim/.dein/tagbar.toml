@@ -1,0 +1,22 @@
+[[plugins]]
+repo = 'preservim/tagbar'
+hook_add = '''
+	" install uniersal-ctags -> github: universal-ctags/ctags
+	let g:tagbar_iconchars = ['▸', '▾']
+
+
+	let g:tagbar_autoclose = 0
+	let g:tagbar_autopreview = 1
+	nnoremap <silent> fd :TagbarOpen fj<CR>
+  nnoremap <silent> df :TagbarToggle<CR>
+
+	let g:tagbar_position = 'right'
+  let g:tagbar_previewwin_pos = "aboveleft"
+
+	let g:tagbar_autopreview = 1
+	let g:tagbar_sort = 0
+
+	"let g:tagbar_visibility_symbols = {'public':'+', 'protected':'#', 'private':'-'}
+
+	autocmd ColorScheme * highlight TagbarSignature ctermfg=255 ctermbg=235 guifg=#EEEEEE guibg=#262626
+'''

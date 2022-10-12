@@ -1,0 +1,29 @@
+[[plugins]]
+repo='tpope/vim-fugitive'
+hook_add = '''
+
+ ""  :G [args] -> :Git {args}
+ ""  :Git blame [flags]
+ ""  	Commit|Author|Datetime
+ "" 	C, A, D -> resize to end of Commit, Author, Datetime
+ "" 	o, O -> jump to patch or blob in (horizontal split|new tab)
+ "" 	p -> jump to patch or blob in preview window
+ "" :Git difftool [-y][args]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''

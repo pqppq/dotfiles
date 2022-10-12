@@ -1,0 +1,8 @@
+[[plugins]]
+repo = 'romainl/Apprentice'
+
+[[plugins]]
+repo = 'YorickPeterse/happy_hacking.vim'
+
+[[plugins]]
+repo = 'jacoborus/tender.vim'

@@ -1,0 +1,86 @@
+[[plugins]]
+repo = "nvim-telescope/telescope.nvim"
+depends = "plenary.nvim"
+hook_add = '''
+
+" Find files using Telescope command-line sugar.
+nnoremap <Space>ff <cmd>Telescope find_files hidden=true<CR>
+nnoremap <Space>fg <cmd>Telescope live_grep<CR>
+nnoremap <Space>fb <cmd>Telescope buffers<CR>
+nnoremap <Space>fh <cmd>Telescope help_tags<CR>
+
+
+lua << EOF
+	require('telescope').setup{
+		defaults = {
+			vimgrep_arguments = {
+				"rg",
+				"--color=never",
+				"--no-heading",
+				"--with-filename",
+				"--line-number",
+				"--column",
+				"--smart-case",
+				"--hidden",
+			},
+			mappings = {
+				i = {
+				-- map actions.which_key to <C-h> (default: <C-/>)
+				-- actions.which_key shows the mappings for your picker,
+				-- e.g. git_{create, delete, ...}_branch for the git_branches picker
+				["<C-h>"] = "which_key",
+				},
+			},
+			pickers = {
+			-- Default configuration for builtin pickers goes here:
+			-- picker_name = {
+			--   picker_config_key = value,
+			--   ...
+			-- }
+			-- Now the picker_config_key will be applied every time you call this
+			-- builtin picker
+			},
+			extensions = {
+			-- Your extension configuration goes here:
+			-- extension_name = {
+			--   extension_config_key = value,
+			-- }
+			-- please take a look at the readme of the extension you want to configure
+			},
+		},
+		prompt = "> ",
+		selection_caret = "> ",
+		entry_prefix = "  ",
+		selection_strategy = "reset",
+		sorting_strategy = "ascending",
+		layout_strategy = "center",
+		layout_config = {
+			width = 0.8,
+			horizontal = {
+				mirror = false,
+				prompt_position = "top",
+				preview_cutoff = 120,
+				preview_width = 0.5,
+			},
+			vertic = {
+				mirror = false,
+				prompt_position = "top",
+				preview_cut = 120,
+				preview_width = 0.5,
+			},
+		},
+		file_sorter = require("telescope.sorters").get_fuzzy_file,
+		file_ignore_patterns = { "node_modules/*" },
+		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+		path_display = { "truncate" },
+		dynamic_preview_title = true,
+		winblend = 0,
+		border = {},
+		color_devicons = true,
+		use_less = true,
+		scroll_strategy = "cycle",
+		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+	}
+EOF
+
+'''

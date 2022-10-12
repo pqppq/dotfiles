@@ -1,0 +1,70 @@
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build = 'bash install.sh'
+
+hook_add = '''
+
+	set completeopt-=preview
+
+	let g:LanguageClient_serverCommands = {
+			\ 'c':          ['clangd', '--compile-commands-dir=$HOME/.config/compile_commands.json'],
+			\ 'cpp':        ['clangd'],
+			\ 'python':     ['pyright', '--outputjson'],
+			\ 'rust':       ['rust-analyzer'],
+	    \ 'java' :      ['/root/downloads/jdtls/jdtls_launcher'],
+			\ 'javascript': ['typescript-language-server', '--stdio'],
+			\ 'typescript': ['typescript-language-server', '--stdio'],
+			\ 'jsx':        ['typescript-language-server', '--stdio'],
+			\ 'sh':         ['bash-language-server', 'start'],
+			\ 'go':         ['gopls']
+		\ }
+
+	"		\ 'typescript': ['typescript-language-server', '--stdio'],
+	" let g:LanguageClient_serverCommands['vim'] = [exepath('vim-language-server'), '--stdio']
+	"\ 'vim':        ['pyright', '--stdio'],
+	" \ 'java':       ['/root/.vim/jdt-ls.sh'],
+  " \ 'java' :      ['~/downloads/java-language-server/dist/lang_server_linux.sh'],
+	" \ 'java' :      ['/root/downloads/jdtls/jdtls_launcher'],
+
+
+	let g:LanguageClient_loggingFile = '/root/lc.log'
+	let g:LanguageClient_loggingLevel = 'DEBUG'
+
+	let g:LanguageClient_diagnosticsSignsMax                = 20
+	let g:LanguageClient_changeThrottle                     = v:null
+	let g:LanguageClient_autoStart                          = 1
+	let g:LanguageClient_autoStop                           = 1
+	let g:LanguageClient_selectionUI                        = 'quickfix'
+	let g:LanguageClient_selectionUI_autoOpen               = 1
+	let g:LanguageClient_trace                              = 'off'
+	let g:LanguageClient_diagnosticsEnable                  = 0
+	let g:LanguageClient_loadSettings                       = 1
+	let g:LanguageClient_windowLogMessageLevel              = 'Warning'
+	let g:LanguageClient_hoverPreview                       = 'Always'
+	let g:LanguageClient_fzfContextMenu                     = 0
+	let g:LanguageClient_useVirtualText                     = 'All'
+	let g:LanguageClient_useFloatingHover                   = 1
+	let g:LanguageClient_usePopupHover                      = 0
+	let g:LanguageClient_floatingHoverHighlight             = 'Normal:Pmenu'
+	let g:LanguageClient_completionPreferTextEdit           = 0
+	let g:LanguageClient_waitOutputTimeout                  = 100
+	let g:LanguageClient_echoProjectRoot                    = 0
+	let g:LanguageClient_hideVirtualTextsOnInsert           = 0
+	let g:LanguageClient_diagnosticsMaxSeverity             = 'Hint'
+	let g:LanguageClient_applyCompletionAdditionalTextEdits = 1
+	let g:LanguageClient_preferredMarkupKind                = ['markdown', 'plaintext']
+	let g:LanguageClient_floatingWindowStyle                = 'minimal'
+  let g:LanguageClient_hasSnippetSupport									= 1
+	"let g:LanguageClient_diagnosticsIgnoreSources           = ['go mod tidy']
+
+	" マッピングの設定
+  nnoremap <silent> K        :call LanguageClient#textDocument_hover()<CR>
+	nnoremap <silent> gr       :<C-u>call LanguageClient#textDocument_references()<CR>
+  nnoremap <silent> gd			 :call LanguageClient#textDocument_definition()<CR>
+	nnoremap <silent> gi		   :call LanguageClient#textDocument_implementation()<CR>
+	nnoremap <silent> gh			 :<C-u>call LanguageClient#textDocument_rename()<CR>
+	"nnoremap <silent> gv      :<C-u>call LanguageClient#explainErrorAtPoint()<CR>
+	"nnoremap <silent> gc      :<C-u>silent Vista finder fzf:lcn<CR>
+
+'''

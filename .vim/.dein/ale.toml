@@ -1,0 +1,72 @@
+[[plugins]]
+repo                                                 = 'dense-analysis/ale'
+hook_add                                             = '''
+	let g:ale_disable_lsp                              = 1
+	let g:ale_fix_on_save                              = 1
+	let g:ale_lint_on_save                             = 1
+  let g:ale_echo_cursor                              = 1
+	let g:ale_virtualtext_cursor                       = 1
+	let g:ale_floating_preview                         = 1
+	let g:ale_detail_to_floating_preview               = 1
+
+	" let g:ale_completion_enabled                     = 0
+	" let g:ale_completion_autoimport                  = 1
+
+	let g:ale_java_google_java_format_executable       = 'google-java-format'
+
+	let g:ale_rust_cargo_use_clippy                    = 1
+	let g:ale_rust_cargo_use_check                     = 1
+	let g:ale_rustfmt_executable                       = 'rustfmt'
+
+	let g:ale_solidity_solc_options                    = ''
+
+	let g:ale_go_gofmt_options                         = '-s'
+	let g:ale_go_golines_options                       = ''
+
+	" let g:ale_typescript_tsserver_use_global         = 1
+
+  nmap <silent> fx <Plug>(ale_fix)
+	nmap <silent> PP <Plug>(ale_next_wrap)
+	nmap <silent> Pp <Plug>(ale_previous_wrap)
+
+
+  let g:ale_linters                                  = {
+ 	\ 'c':          ['clangd', '--compile-commands-dir = $HOME/.config/compilie_commands.json'],
+	\ 'cpp':        ['clangd'],
+	\ 'rust':       ['cargo', 'rustc'],
+	\ 'go':         ['golint'],
+	\ 'python':     ['pyls', 'flake8'],
+	\ 'html':       ['htmlhint'],
+	\ 'javascript': ['eslint', 'importjs'],
+	\ 'typescript': ['eslint', 'importjs'],
+	\ 'css':        ['prettier'],
+	\ 'json':       ['prettier'],
+	\ 'solidity':   ['solc'],
+	\ 'vim':        ['vint'],
+	\}
+
+
+	let g:ale_fixers                                   = {
+	\ '*':          ['remove_trailing_lines', 'trim_whitespace'],
+	\ 'c':          ['clang-format'],
+	\ 'cpp':        ['clang-format'],
+	\ 'java':       ['google_java_format'],
+	\ 'rust':       ['rustfmt'],
+	\ 'go':         ['gofmt', 'golines'],
+	\ 'python':     ['black', 'add_blank_lines_for_python_control_statements', 'isort'],
+	\ 'html':       ['prettier'],
+	\ 'css':        ['prettier'],
+	\ 'javascript': ['prettier', 'eslint'],
+	\ 'typescript': ['prettier', 'eslint'],
+	\ 'json':       ['prettier', 'eslint'],
+	\ 'xml':        ['prettier'],
+	\ 'markdown':   ['prettier'],
+	\ 'solidity':   ['prettier'],
+	\}
+
+
+
+
+	let g:ale_sign_error                               = '>>'
+	let g:ale_sign_warning                             = '> '
+'''

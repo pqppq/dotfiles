@@ -1,0 +1,14 @@
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+hook_add = '''
+
+	let g:denops#debug = 1
+	set runtimepath+=~/repository/hoge
+
+'''
+
+[[plugins]]
+repo = 'vim-denops/denops-helloworld.vim'
+hook_add = '''
+
+'''

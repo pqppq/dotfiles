@@ -1,0 +1,38 @@
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+
+	let g:deoplete#enable_at_startup = 1
+
+	call deoplete#custom#option({
+	\ 'auto_complete_delay': 200,
+	\ 'smart_case': v:true,
+	\ })
+
+	call deoplete#custom#option('keyword_patterns', {
+	\ '_': '[a-zA-Z_]\k*'
+	\})
+
+	call deoplete#custom#var('tabnine', {
+		\ 'line_limit': 500,
+		\ 'max_num_results': 5
+		\ })
+
+	inoremap <silent><expr> <Tab>
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<Tab>" :
+			\ deoplete#complete()
+	inoremap  <silent><expr><S-Tab>   pumvisible() ? "\<C-p>" : "\<C-h>"
+	function! s:check_back_space() abort
+			let col = col('.') - 1
+			return !col || getline('.')[col - 1]  =~# '\s'
+	endfunction
+
+	inoremap <expr><C-g> deoplete#undo_completion()
+	inoremap <C-t> <Tab>
+
+'''
+
+# [[plugins]]
+# repo = 'tbodt/deoplete-tabnine'
+# build = './install.sh'

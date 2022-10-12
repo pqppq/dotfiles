@@ -1,5 +1,6 @@
 alias nvim=PATH_TO_NVIM
 alias v=nvim
+alias vimdiff='nvim -d '
 alias fd=fdfind
 
 export XDG_CONFIG_HOME=~/dotfiles/.config

@@ -132,7 +132,8 @@ inoremap <C-l> {}<Left>
 inoremap <C-h> <Space>:=<Space>
 inoremap <C-u> <Space>=<Space>
 inoremap <C-n> ""<Left>
-nnoremap dw daw
+nnoremap M daw
+tnoremap <Esc> <C-\><C-n>
 
 filetype plugin indent on
 scriptencoding utf-8

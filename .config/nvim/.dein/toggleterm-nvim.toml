@@ -3,7 +3,7 @@ repo="akinsho/toggleterm.nvim"
 hook_add='''
 
 lua << EOF
- require("toggleterm").setup()
+ require("toggleterm").setup{}
 
 EOF
 '''

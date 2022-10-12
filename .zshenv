@@ -1,7 +1,7 @@
 alias v=nvim
 alias fd=fdfind
 
-export XDG_CONFIG_HOME=~/dotfiles
+export XDG_CONFIG_HOME=~/dotfiles/.config
 export EDITOR=nvim
 export LANG=C.UTF-8
 export GOPATH=~/go

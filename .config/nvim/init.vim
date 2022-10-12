@@ -135,7 +135,6 @@ inoremap <C-n> ""<Left>
 nnoremap dw daw
 
 filetype plugin indent on
-language C.UTF-8
 scriptencoding utf-8
 " colorscheme hybrid
 colorscheme duskfox

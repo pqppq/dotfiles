@@ -1,6 +1,11 @@
 [[plugins]]
 repo = 'ntpeters/vim-better-whitespace'
 hook_add = '''
+	autocmd TermEnter * DisableWhitespace
+	autocmd TermLeave * EnableWhitespace
+
+	let g:better_whitespace_ctermcolor = "DarkGrey"
+
 	let g:better_whitespace_enabled=1
 	let g:strip_whitespace_on_save=1
 	let g:strip_whitespace_confirm=0

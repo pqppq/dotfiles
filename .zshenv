@@ -1,7 +1,13 @@
-alias nvim=PATH_TO_NVIM
+# alias nvim=PATH_TO_NVIM
 alias v=nvim
 alias vimdiff='nvim -d '
 alias fd=fdfind
+
+alias rm=trash-put
+alias te=trash-empty
+alias tl=trash-list
+alias tr=trash-restore
+alias td=trash-rm
 
 export XDG_CONFIG_HOME=~/dotfiles/.config
 export EDITOR=nvim

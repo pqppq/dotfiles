@@ -1,6 +1,7 @@
 [[plugins]]
 repo='tpope/vim-fugitive'
 hook_add = '''
+	nnoremap <silent><C-g> :Git<CR>
 
  ""  :G [args] -> :Git {args}
  ""  :Git blame [flags]

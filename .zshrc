@@ -129,3 +129,5 @@ autoload -U compinit && compinit -u
 # for macOS
 #. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
+
+eval $(thefuck --alias)

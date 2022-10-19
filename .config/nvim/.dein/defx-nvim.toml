@@ -29,7 +29,7 @@ hook_add = '''
 			\ defx#do_action('new_file')
 
 		nnoremap <silent><buffer><expr> D
-			\ defx#do_action('remove')
+			\ defx#do_action('remove_trash')
 
 		nnoremap <silent><buffer><expr> h
 			\ defx#do_action('cd', ['..'])

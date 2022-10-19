@@ -3,6 +3,7 @@ repo = 'easymotion/vim-easymotion'
 hook_add = '''
 	nnoremap <Space>s <Plug>(easymotion-bd-f2)
 	nnoremap <Space>j <Plug>(easymotion-bd-w)
+	nnoremap <Space>k <Plug>(easymotion-bd-jk)
 	nnoremap <Space>l <Plug>(easymotion-bd-wl)
 
 '''

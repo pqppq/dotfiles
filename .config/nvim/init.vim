@@ -108,8 +108,6 @@ if dein#check_install()
   call dein#install()
 endif
 
-inoremap <silent> jj <ESC>
-tnoremap <silent> JJ <C-\><C-n>
 nnoremap <silent> ' :bn<CR>
 nnoremap <silent> " :bp<CR>
 nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>"
@@ -126,13 +124,14 @@ inoremap <Up>    <Nop>
 inoremap <Down>  <Nop>
 inoremap <Right> <Nop>
 inoremap <Left>  <Nop>
-" inoremap <BS>    <Nop>
-inoremap <C-o> ()<Left>
-inoremap <C-l> {}<Left>
-inoremap <C-h> <Space>:=<Space>
-inoremap <C-u> <Space>=<Space>
-inoremap <C-n> ""<Left>
-nnoremap M daw
+tnoremap <silent> <C-k> <C-\><C-n>
+inoremap <silent> <C-k> <ESC>
+inoremap <silent> <C-o> ()<Left>
+inoremap <silent> <C-l> {}<Left>
+inoremap <silent> <C-h> <Space>:=<Space>
+inoremap <silent> <C-u> <Space>=<Space>
+inoremap <silent> <C-n> ""<Left>
+nnoremap <silent> M daw
 
 filetype plugin indent on
 scriptencoding utf-8

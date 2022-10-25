@@ -9,6 +9,9 @@ alias tl=trash-list
 alias tr=trash-restore
 alias td=trash-rm
 
+alias lg=lazygit
+alias ld=lazydocker
+
 export XDG_CONFIG_HOME=~/dotfiles/.config
 export EDITOR=nvim
 export LANG=en_US.UTF-8

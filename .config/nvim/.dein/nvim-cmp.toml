@@ -162,7 +162,7 @@ lua << EOF
 		  --    opts = vim.tbl_deep_extend('force', opts, server_configs[server.name])
 		  --  end
 
-		  opts.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+		  opts.capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 		  -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
 		  nvim_lsp[server_name].setup(opts)
 		  -- vim.api.nvim_exec_autocmds("User LspAttachBuffers", {})

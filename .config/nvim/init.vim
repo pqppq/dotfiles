@@ -125,7 +125,7 @@ inoremap <Down>  <Nop>
 inoremap <Right> <Nop>
 inoremap <Left>  <Nop>
 tnoremap <silent> <C-k> <C-\><C-n>
-inoremap <silent> <C-k> <ESC>
+inoremap <silent> jk <ESC>
 inoremap <silent> <C-o> ()<Left>
 inoremap <silent> <C-l> {}<Left>
 inoremap <silent> <C-h> <Space>:=<Space>

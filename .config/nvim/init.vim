@@ -44,6 +44,7 @@ let s:telescope_nvim		 = s:toml_dir . 'telescope-nvim.toml'
 let s:vim_better_whitespace = s:toml_dir . 'vim-better-whitespace.toml'
 let s:octo_nvim          = s:toml_dir . 'octo-nvim.toml'
 let s:colorscheme_plugins = s:toml_dir . 'colorscheme-plugins.toml'
+let s:vim_expand_region  = s:toml_dir . 'vim-expand-region.toml'
 " let s:deoplete_nvim      = s:toml_dir . '/deoplete-nvim.toml'
 " let s:dispatch_vim       = s:toml_dir . 'dispatch-vim.toml'
 " let s:nvim_jdtls         = s:toml_dir . 'nvim-jdtls.toml'
@@ -99,6 +100,7 @@ if dein#load_state(s:dein_dir)
 	call dein#load_toml(s:octo_nvim)
 	call dein#load_toml(s:colorscheme_plugins)
 	call dein#load_toml(s:toggleterm_nvim)
+	call dein#load_toml(s:vim_expand_region)
 
 	call dein#end()
 	call dein#save_state()

@@ -195,6 +195,7 @@ set spell
 let worda = 1
 hi MatchParen cterm=none ctermbg=blue ctermfg=white
 hi Normal ctermbg=none guibg=none
+hi NormalFloat ctermbg=3 guibg=3
 hi StatusLine ctermbg=253 guifg=none guibg=none
 hi Comment ctermfg=255
 

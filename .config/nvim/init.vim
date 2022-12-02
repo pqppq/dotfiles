@@ -53,6 +53,7 @@ let s:vim_expand_region  = s:toml_dir . 'vim-expand-region.toml'
 " let s:vdebug             = s:toml_dir . 'vdebug.toml'
 " let s:language_client_neovim = s:dir . '/language-client-neovim.toml'
 let s:toggleterm_nvim = s:toml_dir . '/toggleterm-nvim.toml'
+let s:vim_table_mode = s:toml_dir . 'vim-table-mode.toml'
 
 
 if dein#load_state(s:dein_dir)
@@ -101,6 +102,7 @@ if dein#load_state(s:dein_dir)
 	call dein#load_toml(s:colorscheme_plugins)
 	call dein#load_toml(s:toggleterm_nvim)
 	call dein#load_toml(s:vim_expand_region)
+	call dein#load_toml(s:vim_table_mode)
 
 	call dein#end()
 	call dein#save_state()
@@ -110,30 +112,37 @@ if dein#check_install()
   call dein#install()
 endif
 
-nnoremap <silent> ' :bn<CR>
-nnoremap <silent> " :bp<CR>
-nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>"
-nnoremap <silent> R :%s/<C-r>=expand('<cword>')<CR>//g<Left><Left>
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-
 nnoremap <Up>    <Nop>
 nnoremap <Down>  <Nop>
 nnoremap <Right> <Nop>
 nnoremap <Left>  <Nop>
 nnoremap <BS>  <Nop>
 nnoremap <Del>  <Nop>
+nnoremap <silent> ' :bn<CR>
+nnoremap <silent> " :bp<CR>
+nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>"
+nnoremap R :%s/<C-r>=expand('<cword>')<CR>//g<Left><Left>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+nnoremap <silent> M daw
+nnoremap <C-I> <Tab>
+nnoremap tt :tabnew<CR>
+nnoremap tn :tabnext<CR>
+nnoremap tp :tabprevious<CR>
+nnoremap X :bdelete<CR>
+
 inoremap <Up>    <Nop>
 inoremap <Down>  <Nop>
 inoremap <Right> <Nop>
 inoremap <Left>  <Nop>
-tnoremap <silent> <C-k> <C-\><C-n>
 inoremap <silent> jk <ESC>
 inoremap <silent> <C-o> ()<Left>
 inoremap <silent> <C-l> {}<Left>
-inoremap <silent> <C-h> <Space>:=<Space>
-inoremap <silent> <C-u> <Space>=<Space>
-inoremap <silent> <C-n> ""<Left>
-nnoremap <silent> M daw
+inoremap <silent> <C-h> :=<Space>
+inoremap <silent> <C-u> =<Space>
+inoremap <silent> <C-n> ''<Left>
+
+tnoremap <silent> <C-k> <C-\><C-n>
+
 
 filetype plugin indent on
 scriptencoding utf-8

@@ -1,0 +1,4 @@
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+hook_add = '''
+'''

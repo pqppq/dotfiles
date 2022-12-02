@@ -59,6 +59,7 @@ lua << EOF
  	vim.keymap.set({'n', 'i'}, '<C-b>', cmp.mapping.scroll_docs(-4), opts)
  	vim.keymap.set({'n', 'i'}, '<C-f>', cmp.mapping.scroll_docs(4), opts)
  	vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+ 	vim.keymap.set('n', 'L', vim.diagnostic.open_float, opts)
  	-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
  	-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
  	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -69,7 +70,6 @@ lua << EOF
 
  	vim.keymap.set('n', 'F', vim.lsp.buf.format, opts)
 
- 	-- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
  	-- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
  	-- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
  	-- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
@@ -79,7 +79,6 @@ lua << EOF
  	-- vim.keymap.set('n', '<space>wl', function()
  	-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
  	-- end, opts)
-
  	-- vim.keymap.set('n', '<C-Space>', cmp.mapping.complete(), opts)
  	-- vim.keymap.set('n', '<C-e>', cmp.mapping.abort(), opts)
 
@@ -92,12 +91,12 @@ lua << EOF
 					vim.api.nvim_feedkeys(t('<Tab>'), 'n', true)
 				end
 			end, opts)
-	vim.keymap.set({'n', 'v'}, '<Tab>', function()
+	vim.keymap.set({'v'}, '<Tab>', function()
 				if luasnip.jumpable(1) then
 					luasnip.jump(1)
 				end
 			end, opts)
-	vim.keymap.set({'n', 'i', 'v'}, '<S-Tab>', function()
+	vim.keymap.set({'i', 'v'}, '<S-Tab>', function()
 			if cmp.visible() then
 				cmp.select_prev_item()
 			elseif luasnip.jumpable(-1) then
@@ -170,7 +169,35 @@ lua << EOF
 	})
 
 	-- map mason's formatter and linter for null-ls
- vim.diagnostic.config({ virtual_text = false })
+	local function format(diagnostic)
+		local icon = ''
+		if diagnostic.severity == vim.diagnostic.severity.WARN then
+			icon = ''
+		end
+		if diagnostic.severity == vim.diagnostic.severity.HINT then
+			icon = ''
+		end
+		if diagnostic.severity == vim.diagnostic.severity.INFO then
+			icon = ''
+		end
+		if diagnostic.severity == vim.diagnostic.severity.OTHER then
+			icon = '﫠'
+		end
+
+		local message = string.format("%s %s", icon, diagnostic.message)
+		return message
+	end
+
+	vim.diagnostic.config({
+		float = true,
+		update_in_insert = true,
+		signs = false,
+		virtual_text = {
+			prefix = '',
+			format = format,
+			spacing = 2,
+		},
+	})
 	local mason_package = require("mason-core.package")
 	local mason_registry = require("mason-registry")
 	local null_ls = require("null-ls")

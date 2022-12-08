@@ -8,70 +8,41 @@ execute 'set runtimepath+=' . s:dein_repo_dir
 
 let s:toml_dir           = '~/dotfiles/.config/nvim/.dein/'
 
-let s:defx_nvim          = s:toml_dir . 'defx-nvim.toml'
-let s:denite_nvim        = s:toml_dir . 'denite-nvim.toml'
-let s:vim_surround       = s:toml_dir . 'vim-surround.toml'
-let s:auto_pairs         = s:toml_dir . 'auto-pairs.toml'
-let s:tagbar             = s:toml_dir . 'tagbar.toml'
-let s:vim_commentary     = s:toml_dir . 'vim-commentary.toml'
-let s:vim_devicons       = s:toml_dir . 'vim-devicons.toml'
-let s:echodoc_vim        = s:toml_dir . 'echodoc-vim.toml'
-" let s:ale                = s:toml_dir . 'ale.toml'
-let s:vim_test           = s:toml_dir . 'vim-test.toml'
-let s:ultisnips          = s:toml_dir . 'ultisnips.toml'
-let s:vim_quickrun       = s:toml_dir . 'vim-quickrun.toml'
-let s:vim_easy_align     = s:toml_dir . 'vim-easy-align.toml'
-" let s:coc_nvim           = s:toml_dir . 'coc-nvim.toml'
-let s:nvim_cmp           = s:toml_dir . 'nvim-cmp.toml'
-let s:emmet_vim          = s:toml_dir . 'emmet-vim.toml'
-" let s:vim_closetag       = s:toml_dir . 'vim-closetag.toml'
-let s:vim_easy_motion    = s:toml_dir . 'vim-easy-motion.toml'
-let s:ack_vim            = s:toml_dir . 'ack-vim.toml'
-let s:vim_dadbob         = s:toml_dir . 'vim-dadbob.toml'
-let s:fzf_vim            = s:toml_dir . 'fzf-vim.toml'
-let s:any_jump_vim       = s:toml_dir . 'any-jaump-vim.toml'
-let s:vim_fugitive       = s:toml_dir . 'vim-fugitive.toml'
-" let s:vim_gitgutter      = s:toml_dir . 'vim-gitgutter.toml'
-let s:gitsigns_nvim			 = s:toml_dir . 'gitsigns-nvim.toml'
-let s:vim_repeat         = s:toml_dir . 'vim-repeat.toml'
-let s:denops_vim         = s:toml_dir . 'denops-vim.toml'
-let s:luasnip            = s:toml_dir . 'luasnip.toml'
-let s:nvim_autopairs     = s:toml_dir . 'nvim-autopairs.toml'
-let s:trouble_nvim       = s:toml_dir . 'trouble-nvim.toml'
-let s:plenary_nvim			 = s:toml_dir . 'plenary-nvim.toml'
-let s:nvim_treesitter	   = s:toml_dir . 'nvim-treesitter.toml'
-let s:telescope_nvim		 = s:toml_dir . 'telescope-nvim.toml'
+" let s:vim_test            = s:toml_dir . 'vim-test.toml'
+" let s:vdebug              = s:toml_dir . 'vdebug.toml'
+" let s:vim_quickrun        = s:toml_dir . 'vim-quickrun.toml'
+let s:defx_nvim             = s:toml_dir . 'defx-nvim.toml'
+let s:denite_nvim           = s:toml_dir . 'denite-nvim.toml'
+let s:vim_surround          = s:toml_dir . 'vim-surround.toml'
+let s:tagbar                = s:toml_dir . 'tagbar.toml'
+let s:vim_commentary        = s:toml_dir . 'vim-commentary.toml'
+let s:vim_easy_align        = s:toml_dir . 'vim-easy-align.toml'
+let s:nvim_cmp              = s:toml_dir . 'nvim-cmp.toml'
+let s:emmet_vim             = s:toml_dir . 'emmet-vim.toml'
+let s:vim_easy_motion       = s:toml_dir . 'vim-easy-motion.toml'
+let s:vim_dadbob            = s:toml_dir . 'vim-dadbob.toml'
+let s:vim_fugitive          = s:toml_dir . 'vim-fugitive.toml'
+let s:gitsigns_nvim         = s:toml_dir . 'gitsigns-nvim.toml'
+let s:vim_repeat            = s:toml_dir . 'vim-repeat.toml'
+let s:luasnip               = s:toml_dir . 'luasnip.toml'
+let s:nvim_autopairs        = s:toml_dir . 'nvim-autopairs.toml'
+let s:trouble_nvim          = s:toml_dir . 'trouble-nvim.toml'
+let s:plenary_nvim          = s:toml_dir . 'plenary-nvim.toml'
+let s:nvim_treesitter       = s:toml_dir . 'nvim-treesitter.toml'
+let s:telescope_nvim        = s:toml_dir . 'telescope-nvim.toml'
 let s:vim_better_whitespace = s:toml_dir . 'vim-better-whitespace.toml'
-let s:octo_nvim          = s:toml_dir . 'octo-nvim.toml'
-let s:colorscheme_plugins = s:toml_dir . 'colorscheme-plugins.toml'
-let s:vim_expand_region  = s:toml_dir . 'vim-expand-region.toml'
-" let s:deoplete_nvim      = s:toml_dir . '/deoplete-nvim.toml'
-" let s:dispatch_vim       = s:toml_dir . 'dispatch-vim.toml'
-" let s:nvim_jdtls         = s:toml_dir . 'nvim-jdtls.toml'
-" let s:vim_hug_neovim_rpc = s:toml_dir . 'vim-hug-neovim-rpc.toml'
-" let s:copilot_vim        = s:toml_dir . 'copilot-vim.toml'
-" let s:vdebug             = s:toml_dir . 'vdebug.toml'
-" let s:language_client_neovim = s:dir . '/language-client-neovim.toml'
-let s:toggleterm_nvim = s:toml_dir . '/toggleterm-nvim.toml'
-let s:vim_table_mode = s:toml_dir . 'vim-table-mode.toml'
+let s:octo_nvim             = s:toml_dir . 'octo-nvim.toml'
+let s:colorscheme_plugins   = s:toml_dir . 'colorscheme-plugins.toml'
+let s:vim_expand_region     = s:toml_dir . 'vim-expand-region.toml'
+let s:toggleterm_nvim       = s:toml_dir . 'toggleterm-nvim.toml'
+let s:vim_table_mode        = s:toml_dir . 'vim-table-mode.toml'
+let s:vim_go                = s:toml_dir . 'vim-go.toml'
 
 
 if dein#load_state(s:dein_dir)
 	call dein#begin(s:dein_dir)
   call dein#add(s:dein_repo_dir)
 
-	" call dein#load_toml(s:deoplete_nvim)
-	" call dein#load_toml(s:ultisnips)
-	" call dein#load_toml(s:denops_vim)
-	" call dein#load_toml(s:any_jump_vim)
-	" call dein#load_toml(s:copilot_vim)
-	" call dein#load_toml(s:vim_hug_neovim_rpc)
-	" call dein#load_toml(s:echodoc_vim)
-	" call dein#load_toml(s:vdebug)
-	" call dein#load_toml(s:dispatch_vim)
-	" call dein#load_toml(s:fzf_vim)
-
-	" call dein#load_toml(s:ale)
 	call dein#load_toml(s:plenary_nvim)
 	call dein#load_toml(s:nvim_treesitter)
 	call dein#load_toml(s:telescope_nvim)
@@ -84,18 +55,12 @@ if dein#load_state(s:dein_dir)
 	call dein#load_toml(s:luasnip)
 	call dein#load_toml(s:nvim_cmp)
 	call dein#load_toml(s:trouble_nvim)
-	" call dein#load_toml(s:coc_nvim)
-	call dein#load_toml(s:vim_test)
-	call dein#load_toml(s:vim_quickrun)
 	call dein#load_toml(s:vim_easy_align)
 	call dein#load_toml(s:emmet_vim)
-	" call dein#load_toml(s:vim_closetag)
 	call dein#load_toml(s:vim_easy_motion)
 	call dein#load_toml(s:vim_repeat)
-	call dein#load_toml(s:ack_vim)
 	call dein#load_toml(s:vim_dadbob)
 	call dein#load_toml(s:vim_fugitive)
-	" call dein#load_toml(s:vim_gitgutter)
 	call dein#load_toml(s:gitsigns_nvim)
 	call dein#load_toml(s:vim_better_whitespace)
 	call dein#load_toml(s:octo_nvim)
@@ -103,6 +68,7 @@ if dein#load_state(s:dein_dir)
 	call dein#load_toml(s:toggleterm_nvim)
 	call dein#load_toml(s:vim_expand_region)
 	call dein#load_toml(s:vim_table_mode)
+	call dein#load_toml(s:vim_go)
 
 	call dein#end()
 	call dein#save_state()
@@ -129,6 +95,7 @@ nnoremap tt :tabnew<CR>
 nnoremap tn :tabnext<CR>
 nnoremap tp :tabprevious<CR>
 nnoremap X :bdelete<CR>
+nnoremap <silent> <C-S> :w<CR>
 
 inoremap <Up>    <Nop>
 inoremap <Down>  <Nop>
@@ -139,7 +106,7 @@ inoremap <silent> <C-o> ()<Left>
 inoremap <silent> <C-l> {}<Left>
 inoremap <silent> <C-h> :=<Space>
 inoremap <silent> <C-u> =<Space>
-inoremap <silent> <C-n> ''<Left>
+inoremap <silent> <C-n> ""<Left>
 
 tnoremap <silent> <C-k> <C-\><C-n>
 
@@ -164,6 +131,7 @@ set cmdheight=1
 set guicursor=n-v-c:block-Cursor,i-r:hor20
 set updatetime=50
 set ttyfast
+set autowrite
 set backup
 set backupdir=~/.vim/backup
 set backupext=.backup
@@ -193,11 +161,19 @@ set clipboard+=unnamed
 set mouse=
 set spell
 let worda = 1
-hi MatchParen cterm=none ctermbg=blue ctermfg=white
-hi Normal ctermbg=none guibg=none
-hi NormalFloat ctermbg=3 guibg=3
-hi StatusLine ctermbg=253 guifg=none guibg=none
-hi Comment ctermfg=255
+hi! MatchParen cterm=none ctermbg=blue ctermfg=white
+hi! Normal ctermbg=none guibg=none
+hi! NormalFloat ctermbg=22 guibg=22
+hi! StatusLine ctermbg=253 guifg=none guibg=none
+hi! Comment ctermfg=255
+hi! DiagnosticError ctermfg=178
+hi! DiagnosticFloatingError ctermfg=178
+hi! DiagnosticWarn ctermfg=11
+hi! DiagnosticFloatingWarn ctermfg=11
+hi! DiagnosticHint ctermfg=2
+hi! DiagnosticFloatingHint ctermfg=2
+hi! DiagnosticInfo ctermfg=39
+hi! DiagnosticFloatingInfo ctermfg=39
 
 set signcolumn=auto:2
 sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=

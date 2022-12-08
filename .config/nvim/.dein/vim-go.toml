@@ -1,5 +1,17 @@
 [[plugins]]
 repo = 'fatih/vim-go'
 hook_add = '''
+	" disable all default setting
+	let g:go_def_mapping_enabled= 0
+	let g:go_doc_keywordprg_enabled = 0
+	let g:go_doc_popup_window = 0
+	let g:go_doc_balloon = 0
+	let g:go_code_completion_enabled = 0
+	let g:go_diagnostics_enabled = 0
 
+	autocmd FileType go nnoremap <Space>b  <Plug>(go-build)
+	autocmd FileType go nnoremap <Space>r  <Plug>(go-run)
+	autocmd FileType go nnoremap <Space>t  <Plug>(go-test)
+	autocmd FileType go nnoremap <Space>e  <Plug>(go-iferr)
+	autocmd FileType go nnoremap <Space>i  :GoImple
 '''

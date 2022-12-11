@@ -60,18 +60,13 @@
     "description": "Snippet for Test function"
   },
   "t.Fatal": {
-    "prefix": "tf",
-    "body": "t.Fatal(err)",
-    "description": "t.Fatal"
-  },
-  "t.Fatal": {
     "prefix": "tff",
     "body": "t.Fatalf(\"$1\", $2)",
     "description": "t.Fatal"
   },
   "if": {
     "prefix": "if",
-    "body": "if ${1:condition} {\n\t$0\n}",
+    "body": "if $1 {\n\t$0\n}",
     "description": "Snippet for if statement"
   },
   "t.Error": {
@@ -86,17 +81,12 @@
   },
   "table driven test": {
     "prefix": "tdt",
-    "body": "func Test$1(t *testing.T) {\n\ttestCases := []struct {\n\t\tname\tstring\n\t\t$2\n\t}{\n\t\t{\n\t\t\tname: \"$3\",\n\t\t\t$4\n\t\t},\n\t}\n\tfor _, tC := range testCases {\n\t\tt.Run(tC.name, func(t *testing.T) {\n\t\t\t$0\n\t\t})\n\t}\n}",
+    "body": "func Test$1(t *testing.T) {\n\ttestCases := []struct {\n\t\tname\tstring\n\t\t$2\n\t}{\n\t\t{\n\t\t\tname: \"$3\",\n\t\t\t$4\n\t\t},\n\t}\n\tfor _, tc := range testCases {\n\t\tt.Run(tc.name, func(t *testing.T) {\n\t\t\t$0\n\t\t})\n\t}\n}",
     "nameription": "Snippet for table driven test"
-  },
-  "if": {
-    "prefix": "if",
-    "body": "if $1 {\n\t$0\n}",
-    "description": "Snippet for if statement"
   },
   "if err exp": {
     "prefix": "ife",
-    "body": "if $1, err = $2; err != nil {\n\t$0\n}",
+    "body": "if $1, err := $2; err != nil {\n\t$0\n}",
     "description": "Snippet for if statement"
   },
   "if !=": {

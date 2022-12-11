@@ -6,3 +6,15 @@ repo = 'YorickPeterse/happy_hacking.vim'
 
 [[plugins]]
 repo = 'jacoborus/tender.vim'
+
+[[plugins]]
+repo = 'sainnhe/everforest'
+hook_add = '''
+	let g:everforest_background = 'soft'
+'''
+
+[[plugins]]
+repo = 'sainnhe/edge'
+hook_add = '''
+	let g:edge_style = 'neon'
+'''

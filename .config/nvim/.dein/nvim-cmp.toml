@@ -170,12 +170,15 @@ lua << EOF
 
 	-- map mason's formatter and linter for null-ls
 	local function format(diagnostic)
-		local icon = ''
+		local icon = '🤪'
+		-- local icon = ''
 		if diagnostic.severity == vim.diagnostic.severity.WARN then
-			icon = ''
+			icon = '⚡'
+			-- icon = ''
 		end
 		if diagnostic.severity == vim.diagnostic.severity.HINT then
-			icon = ''
+			icon = '🧠'
+			-- icon = ''
 		end
 		if diagnostic.severity == vim.diagnostic.severity.INFO then
 			icon = ''

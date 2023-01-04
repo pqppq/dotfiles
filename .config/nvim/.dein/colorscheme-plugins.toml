@@ -18,3 +18,9 @@ repo = 'sainnhe/edge'
 hook_add = '''
 	let g:edge_style = 'neon'
 '''
+
+[[plugins]]
+repo = 'fxn/vim-monochrome'
+
+[[plugins]]
+repo = 'cocopon/iceberg.vim'

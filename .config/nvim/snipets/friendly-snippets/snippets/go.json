@@ -133,5 +133,10 @@
 	"prefix": "j",
 	"body": "`json:\"$1\"`",
 	"description": "Snippet for struct json tag"
+  },
+  "http handler": {
+	"prefix": "httph",
+	"body": "func $1(w http.ResponseWriter, r *http.Request) {\n\t$0\n}",
+	"description": "http handler"
   }
 }

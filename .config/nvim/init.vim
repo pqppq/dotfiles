@@ -14,11 +14,11 @@ let s:toml_dir           = '~/dotfiles/.config/nvim/.dein/'
 let s:defx_nvim             = s:toml_dir . 'defx-nvim.toml'
 let s:denite_nvim           = s:toml_dir . 'denite-nvim.toml'
 let s:vim_surround          = s:toml_dir . 'vim-surround.toml'
-let s:tagbar                = s:toml_dir . 'tagbar.toml'
+" let s:tagbar                = s:toml_dir . 'tagbar.toml'
 let s:vim_commentary        = s:toml_dir . 'vim-commentary.toml'
 let s:vim_easy_align        = s:toml_dir . 'vim-easy-align.toml'
 let s:nvim_cmp              = s:toml_dir . 'nvim-cmp.toml'
-let s:emmet_vim             = s:toml_dir . 'emmet-vim.toml'
+" let s:emmet_vim             = s:toml_dir . 'emmet-vim.toml'
 let s:vim_easy_motion       = s:toml_dir . 'vim-easy-motion.toml'
 let s:vim_dadbob            = s:toml_dir . 'vim-dadbob.toml'
 let s:vim_fugitive          = s:toml_dir . 'vim-fugitive.toml'
@@ -37,6 +37,7 @@ let s:vim_expand_region     = s:toml_dir . 'vim-expand-region.toml'
 let s:toggleterm_nvim       = s:toml_dir . 'toggleterm-nvim.toml'
 let s:vim_table_mode        = s:toml_dir . 'vim-table-mode.toml'
 let s:vim_go                = s:toml_dir . 'vim-go.toml'
+let s:nvim_scrollbar        = s:toml_dir . 'nvim-scrollbar.toml'
 
 
 if dein#load_state(s:dein_dir)
@@ -48,7 +49,7 @@ if dein#load_state(s:dein_dir)
 	call dein#load_toml(s:telescope_nvim)
 	call dein#load_toml(s:defx_nvim)
 	call dein#load_toml(s:denite_nvim)
-	call dein#load_toml(s:tagbar)
+	" call dein#load_toml(s:tagbar)
 	call dein#load_toml(s:vim_surround)
 	call dein#load_toml(s:vim_commentary)
 	call dein#load_toml(s:nvim_autopairs)
@@ -56,7 +57,7 @@ if dein#load_state(s:dein_dir)
 	call dein#load_toml(s:nvim_cmp)
 	call dein#load_toml(s:trouble_nvim)
 	call dein#load_toml(s:vim_easy_align)
-	call dein#load_toml(s:emmet_vim)
+	" call dein#load_toml(s:emmet_vim)
 	call dein#load_toml(s:vim_easy_motion)
 	call dein#load_toml(s:vim_repeat)
 	call dein#load_toml(s:vim_dadbob)
@@ -69,6 +70,7 @@ if dein#load_state(s:dein_dir)
 	call dein#load_toml(s:vim_expand_region)
 	call dein#load_toml(s:vim_table_mode)
 	call dein#load_toml(s:vim_go)
+	call dein#load_toml(s:nvim_scrollbar)
 
 	call dein#end()
 	call dein#save_state()

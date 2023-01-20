@@ -45,7 +45,7 @@ lua << EOF
       border = 'single', -- 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
       -- like `size`, width and height can be a number or function which is passed the current terminal
       width = math.floor(vim.o.columns * 0.8),
-      height = math.floor(vim.o.columns * 0.8),
+      height = math.floor(vim.o.columns * 1),
       winblend = 0,
 			highlight = { border = "ColorColumn", background = "ColorColumn"},
     },

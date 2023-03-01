@@ -1,5 +1,5 @@
 if &compatible
-  set nocompatible
+set nocompatible
 endif
 
 let s:dein_dir           = '~/.cache/dein/repos/github.com'
@@ -37,7 +37,7 @@ let s:vim_expand_region     = s:toml_dir . 'vim-expand-region.toml'
 let s:toggleterm_nvim       = s:toml_dir . 'toggleterm-nvim.toml'
 let s:vim_table_mode        = s:toml_dir . 'vim-table-mode.toml'
 let s:vim_go                = s:toml_dir . 'vim-go.toml'
-let s:nvim_scrollbar        = s:toml_dir . 'nvim-scrollbar.toml'
+" let s:nvim_scrollbar        = s:toml_dir . 'nvim-scrollbar.toml'
 
 
 if dein#load_state(s:dein_dir)
@@ -70,7 +70,7 @@ if dein#load_state(s:dein_dir)
 	call dein#load_toml(s:vim_expand_region)
 	call dein#load_toml(s:vim_table_mode)
 	call dein#load_toml(s:vim_go)
-	call dein#load_toml(s:nvim_scrollbar)
+	" call dein#load_toml(s:nvim_scrollbar)
 
 	call dein#end()
 	call dein#save_state()
@@ -106,16 +106,17 @@ inoremap <Left>  <Nop>
 inoremap <silent> jk <ESC>
 inoremap <silent> <C-o> ()<Left>
 inoremap <silent> <C-l> {}<Left>
-inoremap <silent> <C-h> :=<Space>
+inoremap <silent> <C-f> <><Left>
 inoremap <silent> <C-u> =<Space>
 inoremap <silent> <C-n> ""<Left>
-
 tnoremap <silent> <C-k> <C-\><C-n>
+autocmd FileType go inoremap <silent> <C-h> :=<Space>
+autocmd FileType rust inoremap <silent> <C-h> ::
 
 
 filetype plugin indent on
 scriptencoding utf-8
-colorscheme tender
+" colorscheme tender
 
 set path+=$PWD/**
 set inccommand=split

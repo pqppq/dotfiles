@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/root/dotfiles/.config/nvim/lua/lazyvim/plugins'
+let g:netrw_dirhist_5='/root/repository/config/nvim'
+let g:netrw_dirhist_4='/root/repository/config/nvim/.dein'
+let g:netrw_dirhist_3='/root/repository/config/nvim'
+let g:netrw_dirhist_2='/root/repository/config/nvim/.dein'
+let g:netrw_dirhist_1='/root/repository/config/nvim'
+let g:netrw_dirhist_0='/root/repository/config/nvim/.dein'
+let g:netrw_dirhist_9='/root/dotfiles/.config/nvim/lua/lazyvim/plugins'
+let g:netrw_dirhist_8='/root/dotfiles/.config/nvim.dein/.dein'
+let g:netrw_dirhist_7='/root/dotfiles/.config/nvim.dein'

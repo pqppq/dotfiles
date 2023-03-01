@@ -254,11 +254,6 @@ return {
 						hidden = true,
 						-- disables netrw and use telescope-file-browser in its place
 						hijack_netrw = true,
-						mappings = {
-							["n"] = {
-								["N"] = fb_actions.create,
-							},
-						},
 					},
 				},
 			})

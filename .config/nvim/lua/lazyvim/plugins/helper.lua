@@ -24,4 +24,14 @@ return {
 			require("nvim-ts-autotag").setup()
 	end
 	},
+	{'phaazon/hop.nvim',
+	config = function()
+		require("hop").setup()
+	end,
+	keys = {
+			{ "<Space>k", ":HopLine<CR>" },
+			{ "<Space>l", ":HopWordCurrentLine<CR>" },
+			{ "<Space>s", ":HopWordMW<CR>" },
+	},
+	}
 }

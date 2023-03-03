@@ -1,4 +1,19 @@
 {
+  "Error": {
+    "prefix": "error",
+    "body": ["impl Error for $1 {}"],
+    "description": "Erorr trait"
+  },
+  "Display": {
+    "prefix": "display",
+    "body": ["impl Display for $1 {\n\tfn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result{\n\t\twrite!(f, \"$2\", $0)\n\t}\n}"],
+    "description": "Display trait"
+  },
+  "Result": {
+    "prefix": "rs",
+    "body": ["Result<$1, $2> $0"],
+    "description": "Result"
+  },
   "allow": {
     "prefix": "allow",
     "body": ["#![allow(${1})]"],
@@ -268,6 +283,15 @@
     "prefix": "fn",
     "body": [
       "fn ${1:name}(${2:arg}: ${3:Type}) -> ${4:RetType} {",
+      "    ${5:unimplemented!();}",
+      "}"
+    ],
+    "description": "fn …(…) { … }"
+  },
+  "pfn": {
+    "prefix": "pfn",
+    "body": [
+      "pub fn ${1:name}(${2:arg}: ${3:Type}) -> ${4:RetType} {",
       "    ${5:unimplemented!();}",
       "}"
     ],

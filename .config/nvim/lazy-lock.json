@@ -13,6 +13,7 @@
   "everforest": { "branch": "master", "commit": "a2e84f3bedd525c6d29332184e2d7c61f710bb2b" },
   "gitsigns.nvim": { "branch": "main", "commit": "76b71f74ce002119fce322df13bd21cc52c1d112" },
   "happy_hacking.vim": { "branch": "master", "commit": "e2e73d9cac5ff7acfc37bd090f1d709eac94c9a9" },
+  "hop.nvim": { "branch": "master", "commit": "90db1b2c61b820e230599a04fedcd2679e64bd07" },
   "iceberg.vim": { "branch": "master", "commit": "e01ac08c2202e7544531f4d806f6893539da6471" },
   "lazy.nvim": { "branch": "main", "commit": "26d121ea13bee96b079403cee6598f04969d4983" },
   "lsp_signature.nvim": { "branch": "master", "commit": "6f6252f63b0baf0f2224c4caea33819a27f3f550" },

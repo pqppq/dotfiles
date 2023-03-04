@@ -238,27 +238,6 @@ return {
 			}
 		end
 	},
-	{ "nvim-telescope/telescope-file-browser.nvim",
-		dependeicies = { "telescope.nvim", "plenary.nvim" },
-		keys = {
-			{ "fs", "<cmd>Telescope file_browser<CR>" },
-		},
-		config = function()
-			local telescope = require("telescope")
-			telescope.load_extension("file_browser")
-			local fb_actions = telescope.extensions.file_browser.actions
-
-			telescope.setup({
-				extensions = {
-					file_browser = {
-						hidden = true,
-						-- disables netrw and use telescope-file-browser in its place
-						hijack_netrw = true,
-					},
-				},
-			})
-		end
-	},
 	{ "akinsho/toggleterm.nvim",
 		keys = {
 			{ "<Esc>", mode = { "t" },                        "<C-\\><C-n>" },

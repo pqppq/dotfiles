@@ -161,9 +161,12 @@ return {
 		dependeicies = { "plenary.nvim" },
 		keys = {
 			{ "<Space>ff", "<cmd>Telescope find_files hidden=true<CR>" },
-			{ "<Space>fg", "<cmd>Telescope live_grep<CR>" },
+			{ "<Space>fg", "<cmd>Telescope grep_string<CR>" },
 			{ "<Space>fb", "<cmd>Telescope buffers<CR>" },
+			{ "<Space>fj", "<cmd>Telescope current_buffer_fuzzy_find<CR>" },
 			{ "<Space>fh", "<cmd>Telescope help_tags<CR>" },
+			-- git
+			{ "<Space>gc", "<cmd>Telescope git_commits<CR>" },
 		},
 		config = function()
 			require('telescope').setup {

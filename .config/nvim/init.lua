@@ -17,8 +17,8 @@ vim.api.nvim_set_keymap('i', '<C-u>', '=<Space>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-n>', '""<Left>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-k>', '<C-\\><C-n>', { noremap = true })
 
-vim.cmd('autocmd FileType go inoremap <silent> <C-h> :=<Space>')
-vim.cmd('autocmd FileType rust inoremap <silent> <C-h> ::')
+vim.cmd('autocmd FileType go inoremap <C-s> :=')
+vim.cmd('autocmd FileType rust inoremap <C-s> ::')
 vim.cmd('filetype plugin indent on')
 
 vim.opt.laststatus = 2

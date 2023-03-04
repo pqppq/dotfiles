@@ -42,7 +42,7 @@ return {
 			"nui.nvim",
 		},
 		keys = {
-			{ "fs", ":Neotree toggle show filesystem<CR>" },
+			{ "fs", ":Neotree toggle focus filesystem<CR>" },
 			{ "fd", ":Neotree toggle show buffers<CR>" },
 			{ "fg", ":Neotree toggle show git_status<CR>" },
 		},
@@ -224,14 +224,25 @@ return {
           window = {
             mappings = {
               ["h"] = "navigate_up",
-              ["<cr>"] = "open",
               ["l"] = "set_root",
+              ["fs"] = function()
+								-- close window
+								local tree = require("neo-tree.command")
+								tree.execute({action = "close"})
+							end,
+              ["<cr>"] = function(state)
+								-- open file and close window
+								local tree = require("neo-tree.command")
+								local commands = require("neo-tree.sources.filesystem.commands")
+								commands.open(state)
+								tree.execute({action = "close"})
+							end,
               ["H"] = "toggle_hidden",
               ["/"] = "fuzzy_finder",
               ["D"] = "fuzzy_finder_directory",
               ["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
               -- ["D"] = "fuzzy_sorter_directory",
-              ["f"] = "filter_on_submit",
+              ["F"] = "filter_on_submit",
               ["<c-x>"] = "clear_filter",
               ["[g"] = "prev_git_modified",
               ["]g"] = "next_git_modified",

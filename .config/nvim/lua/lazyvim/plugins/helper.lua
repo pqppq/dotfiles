@@ -6,6 +6,7 @@ return {
 	"terryma/vim-expand-region",
 	'dhruvasagar/vim-table-mode',
 	{ 'nvim-treesitter/nvim-treesitter',
+		lazy = true,
 		event = { 'BufReadPost', 'BufNewFile' },
 		config = function()
 			require 'nvim-treesitter.configs'.setup {
@@ -19,6 +20,7 @@ return {
 	},
 	{
 		"windwp/nvim-ts-autotag",
+		lazy = true,
 		dependencies = { "nvim-treesitter" },
 		config = function()
 			require("nvim-ts-autotag").setup()

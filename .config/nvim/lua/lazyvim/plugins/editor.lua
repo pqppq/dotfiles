@@ -16,6 +16,7 @@ return {
 		},
 	},
 	{ "folke/trouble.nvim",
+		lazy = true,
 		keys = {
 			{ "T", ":TroubleToggle<CR>" },
 		},
@@ -70,6 +71,7 @@ return {
 		end
 	},
 	{ 'L3MON4D3/LuaSnip',
+		lazy = true,
 		config = function()
 			local ls = require("luasnip")
 			local types = require("luasnip.util.types")

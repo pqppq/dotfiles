@@ -73,8 +73,8 @@ return {
 			vim.keymap.set({ 'i', 'v' }, '<S-Tab>', function()
 				if cmp.visible() then
 					cmp.select_prev_item()
-				elseif luasnip.jumpable( -1) then
-					luasnip.jump( -1)
+				elseif luasnip.jumpable(-1) then
+					luasnip.jump(-1)
 				else
 					vim.api.nvim_feedkeys(t('<S-Tab>'), 'n', true)
 				end

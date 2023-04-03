@@ -1,62 +1,74 @@
 return {
+	{
+		'github/copilot.vim',
+		keys = {
+			{ "<C-[>", mode = { "i" }, "<Plug>(copilot-next)" },
+			-- { "<C-]>", mode = { "i" }, "<Plug>(copilot-previous)" },
+			-- { "<C-x>", mode = { "i" }, "<Plug>(copilot-dismiss)" },
+		},
+	},
 	'jiangmiao/auto-pairs',
 	'tpope/vim-surround',
 	'tpope/vim-commentary',
 	"terryma/vim-expand-region",
-	{ 'ntpeters/vim-better-whitespace',
+	{
+		'ntpeters/vim-better-whitespace',
 		config = function()
 			vim.cmd('let g:better_whitespace_enabled=1')
 			vim.cmd('let g:strip_whitespace_on_save=1')
 			vim.cmd('let g:strip_whitespace_confirm=0')
 		end,
 	},
-	{ 'junegunn/vim-easy-align',
+	{
+		'junegunn/vim-easy-align',
 		keys = {
 			{ "ga", mode = { "n", "v" }, "<Plug>(EasyAlign)" },
 		},
 	},
-	{ "folke/trouble.nvim",
+	{
+		"folke/trouble.nvim",
 		lazy = true,
 		keys = {
 			{ "T", ":TroubleToggle<CR>" },
 		},
 		config = function()
 			require('trouble').setup {
-				position = "bottom", -- position of the list can be: bottom, top, left, right
-				height = 8, -- height of the trouble list when position is top or bottom
-				width = 50, -- width of the list when position is left or right
-				icons = true, -- use devicons for filenames
+				position = "bottom",        -- position of the list can be: bottom, top, left, right
+				height = 8,                 -- height of the trouble list when position is top or bottom
+				width = 50,                 -- width of the list when position is left or right
+				icons = true,               -- use devicons for filenames
 				mode = "workspace_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
-				fold_open = "", -- icon used for open folds
-				fold_closed = "", -- icon used for closed folds
-				group = true, -- group results by file
-				padding = true, -- add an extra new line on top of the list
-				action_keys = { -- key mappings for actions in the trouble list
+				fold_open = "",          -- icon used for open folds
+				fold_closed = "",        -- icon used for closed folds
+				group = true,               -- group results by file
+				padding = true,             -- add an extra new line on top of the list
+				action_keys = {
+					-- key mappings for actions in the trouble list
 					-- map to {} to remove a mapping, for example:
 					-- close = {},
-					close = "q", -- close the list
-					cancel = "<esc>", -- cancel the preview and get back to your last window / buffer / cursor
-					refresh = "r", -- manually refresh
-					jump = { "<cr>", "<tab>" }, -- jump to the diagnostic or open / close folds
-					open_split = { "<c-x>" }, -- open buffer in new split
-					open_vsplit = { "<c-v>" }, -- open buffer in new vsplit
-					open_tab = { "<c-t>" }, -- open buffer in new tab
-					jump_close = { "o" }, -- jump to the diagnostic and close the list
-					toggle_mode = "m", -- toggle between "workspace" and "document" diagnostics mode
-					toggle_preview = "P", -- toggle auto_preview
-					hover = "K", -- opens a small popup with the full multiline message
-					preview = "p", -- preview the diagnostic location
+					close = "q",                 -- close the list
+					cancel = "<esc>",            -- cancel the preview and get back to your last window / buffer / cursor
+					refresh = "r",               -- manually refresh
+					jump = { "<cr>", "<tab>" },  -- jump to the diagnostic or open / close folds
+					open_split = { "<c-x>" },    -- open buffer in new split
+					open_vsplit = { "<c-v>" },   -- open buffer in new vsplit
+					open_tab = { "<c-t>" },      -- open buffer in new tab
+					jump_close = { "o" },        -- jump to the diagnostic and close the list
+					toggle_mode = "m",           -- toggle between "workspace" and "document" diagnostics mode
+					toggle_preview = "P",        -- toggle auto_preview
+					hover = "K",                 -- opens a small popup with the full multiline message
+					preview = "p",               -- preview the diagnostic location
 					close_folds = { "zM", "zm" }, -- close all folds
 					open_folds = { "zR", "zr" }, -- open all folds
 					toggle_fold = { "zA", "za" }, -- toggle fold of current file
-					previous = "k", -- previous item
-					next = "j" -- next item
+					previous = "k",              -- previous item
+					next = "j"                   -- next item
 				},
-				indent_lines = true, -- add an indent guide below the fold icons
-				auto_open = false, -- automatically open the list when you have diagnostics
-				auto_close = true, -- automatically close the list when you have no diagnostics
-				auto_preview = false, -- automatically preview the location of the diagnostic. <esc> to close preview and go back to last window
-				auto_fold = false, -- automatically fold a file trouble list at creation
+				indent_lines = true,           -- add an indent guide below the fold icons
+				auto_open = false,             -- automatically open the list when you have diagnostics
+				auto_close = true,             -- automatically close the list when you have no diagnostics
+				auto_preview = false,          -- automatically preview the location of the diagnostic. <esc> to close preview and go back to last window
+				auto_fold = false,             -- automatically fold a file trouble list at creation
 				auto_jump = { "lsp_definitions" }, -- for the given modes, automatically jump if there is only a single result
 				signs = {
 					-- icons / text used for a diagnostic
@@ -70,7 +82,8 @@ return {
 			}
 		end
 	},
-	{ 'L3MON4D3/LuaSnip',
+	{
+		'L3MON4D3/LuaSnip',
 		lazy = true,
 		config = function()
 			local ls = require("luasnip")
@@ -159,7 +172,8 @@ return {
 			-- vim.api.nvim_set_keymap("s", "<C-Down>", "<Plug>luasnip-next-choice", {})
 		end,
 	},
-	{ "nvim-telescope/telescope.nvim",
+	{
+		"nvim-telescope/telescope.nvim",
 		dependeicies = { "plenary.nvim" },
 		keys = {
 			{ "<Space>ff", "<cmd>Telescope find_files hidden=true<CR>" },
@@ -188,7 +202,7 @@ return {
 							-- map actions.which_key to <C-h> (default: <C-/>)
 							-- actions.which_key shows the mappings for your picker,
 							-- e.g. git_{create, delete, ...}_branch for the git_branches picker
-							["<C-h>"] = "which_key",
+									["<C-h>"] = "which_key",
 						},
 					},
 					pickers = {
@@ -243,7 +257,8 @@ return {
 			}
 		end
 	},
-	{ "akinsho/toggleterm.nvim",
+	{
+		"akinsho/toggleterm.nvim",
 		keys = {
 			{ "<Esc>", mode = { "t" },                        "<C-\\><C-n>" },
 			{ "<C-t>", mode = { "t" },                        "<Cmd>exe v:count1 . 'ToggleTerm'<CR>" },
@@ -265,20 +280,20 @@ return {
 				-- on_stdout = fun(t: Terminal, job: number, data: string[], name: string) -- callback for processing output on stdout
 				-- on_stderr = fun(t: Terminal, job: number, data: string[], name: string) -- callback for processing output on stderr
 				-- on_exit = fun(t: Terminal, job: number, exit_code: number, name: string) -- function to run when terminal process exits
-				hide_numbers = true, -- hide the number column in toggleterm buffers
+				hide_numbers = true,  -- hide the number column in toggleterm buffers
 				shade_filetypes = {},
-				autochdir = false, -- when neovim changes it current directory the terminal will change it's own when next it's opened
+				autochdir = false,    -- when neovim changes it current directory the terminal will change it's own when next it's opened
 				shade_terminals = false, -- NOTE: this option takes priority over highlights specified so if you specify Normal highlights you should set this to false
-				shading_factor = 1, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+				shading_factor = 1,   -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
 				start_in_insert = true,
 				insert_mappings = true, -- whether or not the open mapping applies in insert mode
 				terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
 				persist_size = true,
-				persist_mode = true, -- if set to true (default) the previous terminal mode will be remembered
-				direction = 'float', -- 'vertical' | 'horizontal' | 'tab' | 'float',
+				persist_mode = true,  -- if set to true (default) the previous terminal mode will be remembered
+				direction = 'float',  -- 'vertical' | 'horizontal' | 'tab' | 'float',
 				close_on_exit = true, -- close the terminal window when the process exits
-				shell = vim.o.shell, -- change the default shell
-				auto_scroll = true, -- automatically scroll to the bottom on terminal output
+				shell = vim.o.shell,  -- change the default shell
+				auto_scroll = true,   -- automatically scroll to the bottom on terminal output
 				-- This field is only relevant if direction is set to 'float'
 				float_opts = {
 					-- The border key is *almost* the same as 'nvim_open_win'

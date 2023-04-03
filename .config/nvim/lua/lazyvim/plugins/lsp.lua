@@ -56,27 +56,27 @@ return {
 			-- vim.keymap.set('n', '<C-Space>', cmp.mapping.complete(), opts)
 			-- vim.keymap.set('n', '<C-e>', cmp.mapping.abort(), opts)
 
-			vim.keymap.set('i', '<Tab>', function()
+			vim.keymap.set('i', '<C-p>', function()
 				if cmp.visible() then
 					cmp.select_next_item()
 				elseif has_words_before() then
 					cmp.complete()
-				else
-					vim.api.nvim_feedkeys(t('<Tab>'), 'n', true)
+				-- else
+				-- 	vim.api.nvim_feedkeys(t('<Tab>'), 'n', true)
 				end
 			end, opts)
-			vim.keymap.set({ 'v' }, '<Tab>', function()
-				if luasnip.jumpable(1) then
-					luasnip.jump(1)
-				end
-			end, opts)
-			vim.keymap.set({ 'i', 'v' }, '<S-Tab>', function()
+			-- vim.keymap.set({ 'v' }, '<Tab>', function()
+			-- 	if luasnip.jumpable(1) then
+			-- 		luasnip.jump(1)
+			-- 	end
+			-- end, opts)
+			vim.keymap.set({ 'i', 'v' }, '<C-[>', function()
 				if cmp.visible() then
 					cmp.select_prev_item()
 				elseif luasnip.jumpable(-1) then
 					luasnip.jump(-1)
-				else
-					vim.api.nvim_feedkeys(t('<S-Tab>'), 'n', true)
+				--else
+				--	vim.api.nvim_feedkeys(t('<S-Tab>'), 'n', true)
 				end
 			end, opts)
 			vim.keymap.set({ 'i', 'v' }, '<C-k>', function()
@@ -224,7 +224,6 @@ return {
 						menu = {
 							buffer = "[Buffer]",
 							nvim_lsp = "[LSP]",
-							cmp_tabnine = "[TabNine]",
 							copilot = "[Copilot]",
 							luasnip = "[LuaSnip]",
 							-- ultisnips = "[UltiSnips]",

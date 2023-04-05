@@ -14,7 +14,7 @@ vim.api.nvim_set_keymap('i', '<C-o>', '()<Left>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-l>', '{}<Left>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-f>', '<><Left>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-u>', '=<Space>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<C-n>', '""<Left>', { noremap = true })
+vim.api.nvim_set_keymap('i', '<C-b>', '""<Left>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-k>', '<C-\\><C-n>', { noremap = true })
 
 vim.cmd('autocmd FileType go inoremap <C-s> :=')
@@ -75,6 +75,39 @@ vim.cmd('sign define DiagnosticSignError text= texthl=DiagnosticSignError lin
 vim.cmd('sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=')
 vim.cmd('sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=')
 vim.cmd('sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=')
+
+local function format(diagnostic)
+	local icon = '✘'
+	-- local icon = ''
+	if diagnostic.severity == vim.diagnostic.severity.WARN then
+		icon = '▲'
+		-- icon = ''
+	end
+	if diagnostic.severity == vim.diagnostic.severity.HINT then
+		icon = '⚑'
+		-- icon = ''
+	end
+	if diagnostic.severity == vim.diagnostic.severity.INFO then
+		icon = '»'
+	end
+	if diagnostic.severity == vim.diagnostic.severity.OTHER then
+		icon = '»'
+	end
+
+	local message = string.format("%s %s", icon, diagnostic.message)
+	return message
+end
+
+vim.diagnostic.config({
+	float = true,
+	update_in_insert = true,
+	signs = false,
+	virtual_text = {
+		prefix = '',
+		format = format,
+		spacing = 2,
+	},
+})
 
 vim.cmd('let g:python3_host_prog = "~/.asdf/installs/python/3.9.9/bin/python"')
 

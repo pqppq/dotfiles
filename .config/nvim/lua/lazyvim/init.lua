@@ -13,4 +13,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup('lazyvim/plugins')
-vim.cmd.colorscheme('iceberg')
+vim.cmd.colorscheme('rose-pine')

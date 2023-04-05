@@ -3,6 +3,7 @@ return {
 	'YorickPeterse/happy_hacking.vim',
 	'jacoborus/tender.vim',
 	'cocopon/iceberg.vim',
+	'rose-pine/neovim',
 	{
 		'sainnhe/everforest',
 		config = function()

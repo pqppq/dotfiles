@@ -1,5 +1,10 @@
 return {
-	"tpope/vim-fugitive",
+	{
+		"tpope/vim-fugitive",
+		keys = {
+			{ 'git', mode = { 'n' }, ':Git<CR>', silent = true },
+		}
+	},
 	{
 		'airblade/vim-gitgutter',
 		keys = {
@@ -8,7 +13,8 @@ return {
 			{ 'ghu', "<Plug>(GitGutterUndoHunk)" },
 		}
 	},
-	{ "lewis6991/gitsigns.nvim",
+	{
+		"lewis6991/gitsigns.nvim",
 		config = function()
 			require('gitsigns').setup {
 				signs                        = {

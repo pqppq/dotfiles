@@ -140,7 +140,7 @@ return {
 
 					require("cmp_dictionary").setup({
 						dic = {
-									["*"] = { "/usr/share/dict/words" }
+							["*"] = { "/usr/share/dict/words" }
 						},
 						exact = 2,
 						first_case_insensitive = false,
@@ -179,6 +179,22 @@ return {
 					})
 				end
 			}, -- Required
+			{
+				"jay-babu/mason-null-ls.nvim",
+				event = { "BufReadPre", "BufNewFile" },
+				dependencies = {
+					"williamboman/mason.nvim",
+					"jose-elias-alvarez/null-ls.nvim",
+				},
+				config = function()
+					require("mason").setup()
+					require("null-ls").setup()
+					require("mason-null-ls").setup({
+						automatic_setup = true,
+						handlers = {}
+					})
+				end,
+			},
 		},
 		config = function()
 			require("mason").setup()
@@ -189,9 +205,9 @@ return {
 			local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 			local cmp_mappings = lsp.defaults.cmp_mappings({
-						['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-						['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-						['<C-y>'] = cmp.mapping.confirm({ select = true }),
+				['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+				['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+				['<C-y>'] = cmp.mapping.confirm({ select = true }),
 			})
 
 			cmp_mappings['<Tab>'] = nil
@@ -241,9 +257,9 @@ return {
 					suggest = {
 						imports = {
 							hosts = {
-										["https://deno.land"] = true,
-										["https://cdn.nest.land"] = true,
-										["https://crux.land"] = true
+								["https://deno.land"] = true,
+								["https://cdn.nest.land"] = true,
+								["https://crux.land"] = true
 							}
 						}
 					}
@@ -252,20 +268,6 @@ return {
 
 			lsp.setup()
 		end
-	},
-	{
-		"jay-babu/mason-null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			"williamboman/mason.nvim",
-			"jose-elias-alvarez/null-ls.nvim",
-		},
-		config = function()
-			require("mason").setup()
-			require("mason-null-ls").setup({
-				automatic_setup = true,
-			})
-		end,
 	},
 	{
 		'ray-x/lsp_signature.nvim',

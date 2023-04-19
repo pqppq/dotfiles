@@ -202,17 +202,18 @@ return {
 		"nvim-telescope/telescope.nvim",
 		dependeicies = { "plenary.nvim" },
 		keys = {
-			{ "<Space>ff", "<cmd>Telescope find_files hidden=true<CR>" },
-			{ "<Space>fg", "<cmd>Telescope live_grep<CR>" },
-			{ "<Space>fb", "<cmd>Telescope buffers<CR>" },
-			{ "<Space>fj", "<cmd>Telescope current_buffer_fuzzy_find<CR>" },
-			{ "<Space>fh", "<cmd>Telescope help_tags<CR>" },
+			{ "<Space>F",  "<cmd>Telescope find_files hidden=true<CR>" },
+			{ "<Space>G",  "<cmd>Telescope live_grep<CR>" },
+			{ "<Space>B",  "<cmd>Telescope buffers<CR>" },
+			{ "<Space>J",  "<cmd>Telescope current_buffer_fuzzy_find<CR>" },
+			{ "<Space>H",  "<cmd>Telescope help_tags<CR>" },
 			-- git
 			{ "<Space>gc", "<cmd>Telescope git_commits<CR>" },
 		},
 		config = function()
 			require('telescope').setup {
 				defaults = {
+					file_ignore_patterns = { "node_modules", ".git" },
 					vimgrep_arguments = {
 						"rg",
 						"--color=never",

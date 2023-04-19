@@ -9,8 +9,13 @@
     "body": ["impl Display for $1 {\n\tfn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result{\n\t\twrite!(f, \"$2\", $0)\n\t}\n}"],
     "description": "Display trait"
   },
+  "Closure": {
+    "prefix": "c",
+    "body": ["|${1}| ${2}"],
+    "description": "closure"
+  },
   "Result": {
-    "prefix": "rs",
+    "prefix": "re",
     "body": ["Result<$1, $2> $0"],
     "description": "Result"
   },

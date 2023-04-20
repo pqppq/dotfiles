@@ -1,37 +1,75 @@
 return {
 	{
-		{
-			"folke/zen-mode.nvim",
-			config = function()
-				vim.keymap.set("n", '<Space>zz', function()
-					require("zen-mode").setup {
-						window = {
-							width = 90,
-							options = {}
-						},
-					}
-					require("zen-mode").toggle()
-				end
-				)
+		'zbirenbaum/copilot.lua',
+		config = function()
+			require('copilot').setup({
+				panel = {
+					enabled = true,
+					auto_refresh = false,
+					keymap = {
+						jump_prev = "[[",
+						jump_next = "]]",
+						accept = "<CR>",
+						refresh = "gr",
+						open = "<M-CR>"
+					},
+					layout = {
+						position = "bottom", -- | top | left | right
+						ratio = 0.4
+					},
+				},
+				suggestion = {
+					enabled = true,
+					auto_trigger = true,
+					debounce = 75,
+					keymap = {
+						accept = "<Tab>",
+						accept_word = false,
+						accept_line = false,
+						next = "<C-]>",
+						prev = "<C-[>",
+						-- dismiss = "<C-]>",
+					},
+				},
+				filetypes = {
+					yaml = false,
+					markdown = false,
+					help = false,
+					gitrebase = false,
+					hgcommit = false,
+					svn = false,
+					cvs = false,
+					["."] = false,
+				},
+				copilot_node_command = 'node', -- Node.js version must be > 16.x
+				server_opts_overrides = {},
+			})
+		end
+	},
+	{
+		"folke/zen-mode.nvim",
+		config = function()
+			vim.keymap.set("n", '<Space>zz', function()
+				require("zen-mode").setup {
+					window = {
+						width = 90,
+						options = {}
+					},
+				}
+				require("zen-mode").toggle()
 			end
+			)
+		end
+	},
+	{
+		"ThePrimeagen/refactoring.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-treesitter/nvim-treesitter" }
 		},
-		{
-			"ThePrimeagen/refactoring.nvim",
-			requires = {
-				{ "nvim-lua/plenary.nvim" },
-				{ "nvim-treesitter/nvim-treesitter" }
-			},
-			config = function()
+		config = function()
 
-			end
-		},
-		'github/copilot.vim',
-		keys = {
-			{ "<C-[>", mode = { "i" }, "<Plug>(copilot-next)" },
-			{ "<C-]>", mode = { "i" }, "<Plug>(copilot-suggest)" },
-			-- { "<C-]>", mode = { "i" }, "<Plug>(copilot-previous)" },
-			-- { "<C-x>", mode = { "i" }, "<Plug>(copilot-dismiss)" },
-		},
+		end
 	},
 	'jiangmiao/auto-pairs',
 	'tpope/vim-surround',
@@ -202,11 +240,11 @@ return {
 		"nvim-telescope/telescope.nvim",
 		dependeicies = { "plenary.nvim" },
 		keys = {
-			{ "<Space>F",  "<cmd>Telescope find_files hidden=true<CR>" },
-			{ "<Space>G",  "<cmd>Telescope live_grep<CR>" },
-			{ "<Space>B",  "<cmd>Telescope buffers<CR>" },
-			{ "<Space>J",  "<cmd>Telescope current_buffer_fuzzy_find<CR>" },
-			{ "<Space>H",  "<cmd>Telescope help_tags<CR>" },
+			{ "<Space>f",  "<cmd>Telescope find_files hidden=true<CR>" },
+			{ "<Space>g",  "<cmd>Telescope live_grep<CR>" },
+			{ "<Space>b",  "<cmd>Telescope buffers<CR>" },
+			{ "<Space>j",  "<cmd>Telescope current_buffer_fuzzy_find<CR>" },
+			{ "<Space>h",  "<cmd>Telescope help_tags<CR>" },
 			-- git
 			{ "<Space>gc", "<cmd>Telescope git_commits<CR>" },
 		},

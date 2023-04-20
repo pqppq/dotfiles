@@ -1,4 +1,9 @@
 return {
+	'lewis6991/impatient.nvim',
+	{
+		'sindrets/diffview.nvim',
+		dependencies = { 'plenary.nvim' },
+	},
 	'nvim-lua/plenary.nvim',
 	'MunifTanjim/nui.nvim',
 	'nvim-tree/nvim-web-devicons',

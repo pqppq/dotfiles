@@ -205,6 +205,8 @@ return {
 			local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 			local cmp_mappings = lsp.defaults.cmp_mappings({
+				['<C-d>'] = cmp.mapping.scroll_docs(-4),
+				['<C-f>'] = cmp.mapping.scroll_docs(4),
 				['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 				['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
 				['<C-y>'] = cmp.mapping.confirm({ select = true }),
@@ -229,7 +231,7 @@ return {
 				vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
 				vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, opts)
 				vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-				vim.keymap.set({'n','v'}, '<space>ca', vim.lsp.buf.code_action, opts)
+				vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
 				vim.keymap.set({ 'i' }, '<C-k>', function()
 					if luasnip.expand_or_jumpable() then
 						luasnip.expand_or_jump()

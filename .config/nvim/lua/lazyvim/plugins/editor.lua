@@ -1,4 +1,5 @@
 return {
+	"mattn/emmet-vim",
 	{
 		'zbirenbaum/copilot.lua',
 		config = function()

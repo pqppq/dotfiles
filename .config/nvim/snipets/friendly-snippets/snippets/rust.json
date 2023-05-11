@@ -438,5 +438,10 @@
     "prefix": "while",
     "body": ["while ${1:condition} {", "    ${2:unimplemented!();}", "}"],
     "description": "while … { … }"
+  },
+  "lambda": {
+    "prefix": "ar",
+    "body": ["|$1| {\n\t$2\n}"],
+    "description": "|| {}"
   }
 }

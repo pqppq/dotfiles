@@ -1,5 +1,5 @@
 # alias nvim=PATH_TO_NVIM
-alias v=nvim
+alias v=~/nvim-linux64/bin/nvim
 alias vimdiff='nvim -d '
 alias fd=fdfind
 
@@ -21,4 +21,7 @@ export GOBIN=$GOPATH/bin
 export LIBGL_ALWAYS_INDIRECT=1
 export DENO_INSTALL=~/.deno/bin
 
-export PATH=/usr/bin:~/.local/bin:$GOPATH:$GOBIN:$LIBGL_ALWAYS_INDIRECT:$DENO_INSTALL:$PATH
+vrust="$(arr=($(asdf current rust global)); echo $arr[2])"
+export RUST_BIN=~/.asdf/installs/rust/$vrust/bin
+
+export PATH=/usr/bin:~/.local/bin:$GOPATH:$GOBIN:$LIBGL_ALWAYS_INDIRECT:$DENO_INSTALL:$RUST_BIN:$PATH

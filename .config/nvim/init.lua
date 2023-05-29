@@ -1,3 +1,6 @@
+-- load lazyvim
+require("lazyvim")
+
 -- set options
 vim.api.nvim_set_keymap('n', '<Space><Space>', ":let @/ = '\\<' . expand('<cword>') . '\\>'<CR>:set hlsearch<CR>", { noremap = true })
 vim.api.nvim_set_keymap('n', 'R', ":%s/<C-r>=expand('<cword>')<CR>//g<Left><Left>", { noremap = true, silent = true })
@@ -56,7 +59,11 @@ vim.opt.shiftwidth = 2
 vim.opt.swapfile = false
 vim.opt.clipboard:append 'unnamed'
 vim.opt.mouse = '' -- disable mouse touch
+-- vim.opt.signcolumn = 'auto:2'
 vim.opt.signcolumn = 'auto:2'
+
+vim.cmd('hi! StatusLine ctermbg=white ctermfg=black guibg=white guifg=black guibg=white guifg=black')
+vim.cmd('hi! Comment ctermfg=255')
 
 vim.cmd('sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=')
 vim.cmd('sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=')
@@ -95,8 +102,3 @@ vim.diagnostic.config({
 		spacing = 2,
 	},
 })
-
-vim.cmd('let g:python3_host_prog = "~/.asdf/installs/python/3.9.9/bin/python"')
-
--- load lazyvim
-require("lazyvim")

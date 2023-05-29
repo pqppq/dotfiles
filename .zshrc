@@ -131,3 +131,5 @@ autoload -U compinit && compinit -u
 
 
 eval $(thefuck --alias)
+eval $(zoxide init zsh)
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src

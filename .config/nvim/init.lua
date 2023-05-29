@@ -56,22 +56,8 @@ vim.opt.shiftwidth = 2
 vim.opt.swapfile = false
 vim.opt.clipboard:append 'unnamed'
 vim.opt.mouse = '' -- disable mouse touch
--- vim.opt.signcolumn = 'auto:2'
 vim.opt.signcolumn = 'auto:2'
 
-vim.cmd('hi! MatchParen cterm=none ctermbg=blue ctermfg=white')
-vim.cmd('hi! Normal ctermbg=none guibg=none')
-vim.cmd('hi! NormalFloat ctermbg=22 guibg=22')
-vim.cmd('hi! StatusLine ctermbg=253 guifg=none guibg=none')
-vim.cmd('hi! Comment ctermfg=255')
-vim.cmd('hi! DiagnosticError ctermfg=178')
-vim.cmd('hi! DiagnosticFloatingError ctermfg=178')
-vim.cmd('hi! DiagnosticWarn ctermfg=11')
-vim.cmd('hi! DiagnosticFloatingWarn ctermfg=11')
-vim.cmd('hi! DiagnosticHint ctermfg=2')
-vim.cmd('hi! DiagnosticFloatingHint ctermfg=2')
-vim.cmd('hi! DiagnosticInfo ctermfg=40')
-vim.cmd('hi! DiagnosticFloatingInfo ctermfg=40')
 vim.cmd('sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=')
 vim.cmd('sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=')
 vim.cmd('sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=')

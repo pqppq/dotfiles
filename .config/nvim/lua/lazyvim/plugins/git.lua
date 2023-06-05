@@ -2,7 +2,7 @@ return {
 	{
 		"tpope/vim-fugitive",
 		keys = {
-			{ '<C-G>', mode = { 'n' }, ':Git<CR>', silent = true },
+			{ 'gt', mode = { 'n' }, ':Git<CR>', silent = true },
 		}
 	},
 	{

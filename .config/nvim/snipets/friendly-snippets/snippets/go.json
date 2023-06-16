@@ -1,4 +1,24 @@
 {
+  "struct": {
+    "prefix": "ts",
+    "body": "type ${1:Name} struct {\n\t$0\n}",
+    "description": "struct"
+  },
+  "interface": {
+    "prefix": "ti",
+    "body": "type ${1:Name} interface {\n\t$0\n}",
+    "description": "interface"
+  },
+  "log.Println": {
+    "prefix": "lp",
+    "body": "log.Println($1)",
+    "description": "log.Println"
+  },
+  "log.Fatal": {
+    "prefix": "lf",
+    "body": "log.Fatal($1)",
+    "description": "log.Fatal"
+  },
   "fmt.Print": {
     "prefix": "pr",
     "body": "fmt.Print($1)",

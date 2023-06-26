@@ -27,6 +27,7 @@ return {
 		'sindrets/diffview.nvim',
 		dependencies = { 'plenary.nvim' },
 	},
+	'markonm/traces.vim',
 	'nvim-lua/plenary.nvim',
 	'MunifTanjim/nui.nvim',
 	'nvim-tree/nvim-web-devicons',
@@ -85,11 +86,8 @@ return {
 				local api = require "nvim-tree.api"
 
 				local function opts(desc)
-					return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+					return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = false, silent = true, nowait = true }
 				end
-
-				-- default mappings
-				api.config.mappings.default_on_attach(bufnr)
 
 				vim.keymap.set('n', 'l', api.tree.change_root_to_node, opts('CD'))
 				vim.keymap.set('n', 'h', api.tree.change_root_to_parent, opts('Up'))
@@ -107,7 +105,6 @@ return {
 				vim.keymap.set('n', 'H', api.tree.toggle_hidden_filter, opts('Toggle Dotfiles'))
 				vim.keymap.set('n', 'o', api.node.open.edit, opts('Open'))
 				vim.keymap.set('n', 'O', api.node.open.no_window_picker, opts('Open: No Window Picker'))
-				vim.keymap.set('n', '<C-o>', api.node.open.horizontal, opts('Open: Horizontal Split'))
 				vim.keymap.set('n', 'M', api.marks.bulk.move, opts('Move Bookmarked'))
 				vim.keymap.set('n', 'm', api.marks.toggle, opts('Toggle Bookmark'))
 
@@ -115,10 +112,12 @@ return {
 				vim.keymap.set('n', '<C-e>', api.node.open.replace_tree_buffer, opts('Open: In Place'))
 				vim.keymap.set('n', '<C-k>', api.node.show_info_popup, opts('Info'))
 				vim.keymap.set('n', '<C-r>', api.fs.rename_sub, opts('Rename: Omit Filename'))
-				vim.keymap.set('n', '<C-t>', api.node.open.tab, opts('Open: New Tab'))
+				-- vim.keymap.set('n', '<C-t>', api.node.open.tab, opts('Open: New Tab'))
 				vim.keymap.set('n', '<C-v>', api.node.open.vertical, opts('Open: Vertical Split'))
 				vim.keymap.set('n', '<BS>', api.node.navigate.parent_close, opts('Close Directory'))
-				vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
+				vim.keymap.set('n', '<CR>', api.node.open.no_window_picker, opts('Open'))
+				vim.keymap.set('n', '<C-o>', api.node.open.no_window_picker, opts('Open'))
+				-- vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
 				-- vim.keymap.set('n', '>', api.node.navigate.sibling.next, opts('Next Sibling'))
 				-- vim.keymap.set('n', '<', api.node.navigate.sibling.prev, opts('Previous Sibling'))
 				-- vim.keymap.set('n', '.', api.node.run.cmd, opts('Run Command'))
@@ -158,8 +157,14 @@ return {
 					group_empty = true,
 				},
 				filters = {
-					dotfiles = true,
+					dotfiles = false,
 				},
+				actions = {
+					open_file = {
+						quit_on_open = true,
+					}
+
+				}
 			})
 		end
 	}

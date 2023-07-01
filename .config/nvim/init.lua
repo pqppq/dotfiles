@@ -24,6 +24,7 @@ vim.api.nvim_set_keymap('v', 'K', ":move '<-2<CR>gv-gv", { noremap = true })
 vim.cmd('autocmd FileType go inoremap <C-s> :=')
 vim.cmd('autocmd FileType rust inoremap <C-s> ::')
 vim.cmd('filetype plugin indent on')
+vim.cmd("cnoreabbrev <expr> s getcmdtype() .. getcmdline() ==# ':s' ? [getchar(), ''][1] .. '%s///Ig<Left><Left><Left>' : 's'")
 
 vim.opt.laststatus = 2
 vim.opt.statusline = '%t'

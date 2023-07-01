@@ -1,4 +1,5 @@
 return {
+"mg979/vim-visual-multi",
 	{
 		"mattn/emmet-vim",
 		config = function()

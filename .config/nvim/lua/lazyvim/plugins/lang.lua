@@ -12,9 +12,11 @@ return {
 
 			vim.cmd('autocmd FileType go nnoremap gb  <Plug>(go-build)')
 			vim.cmd('autocmd FileType go nnoremap gr  <Plug>(go-run)')
-			vim.cmd('autocmd FileType go nnoremap gt  <Plug>(go-test)')
+			vim.cmd('autocmd FileType go nnoremap gtt  <Plug>(go-test)')
+			vim.cmd('autocmd FileType go nnoremap gtf  <Plug>(go-test-file)')
+			vim.cmd('autocmd FileType go nnoremap gts  <Plug>(go-test-func)')
 			vim.cmd('autocmd FileType go nnoremap ge  <Plug>(go-iferr)')
-			vim.cmd('autocmd FileType go nnoremap gi  :GoImple')
+			vim.cmd('autocmd FileType go nnoremap gk <Plug>(go-doc-split)')
 		end
 	},
 	{

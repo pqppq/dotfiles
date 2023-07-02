@@ -57,14 +57,52 @@ return {
 		end
 	},
 	{
-		'phaazon/hop.nvim',
-		config = function()
-			require("hop").setup()
-		end,
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		opts = {
+			modes = {
+				search = {
+					enabled = false,
+				},
+				char = {
+					enabled = false,
+				},
+			},
+		},
 		keys = {
-			{ "<Space>k", ":HopLine<CR>" },
-			{ "<Space>l", ":HopWordCurrentLine<CR>" },
-			{ "<Space>s", ":HopWordMW<CR>" },
+			{
+				"<Space>k",
+				mode = { "n" },
+				function()
+					require("flash").jump({
+						search = { mode = "search", max_length = 0 },
+						label = { after = { 0, 0 } },
+						pattern = "^"
+					})
+				end,
+				desc = "Flash",
+			},
+			{
+				"<Space>l",
+				mode = { "n" },
+				function()
+					require("flash").jump({
+						search = {
+							forward = true,
+							mode = function(str)
+								return "\\<" .. str
+							end,
+						},
+					})
+				end,
+			},
+			{
+				"<Space>v",
+				mode = { "n" },
+				function()
+					require("flash").treesitter()
+				end,
+			},
 		},
 	},
 	{

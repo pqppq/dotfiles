@@ -99,9 +99,14 @@
     "body": "if err != nil {\n\tt.Errorf($1)\n}",
     "description": "t.Error"
   },
+  "test cases": {
+    "prefix": "tdc",
+    "body": "tests := []struct {\n\t\tname\tstring\n\t\t$2\n\t}{\n\t\t{\n\t\t\tname: \"$3\",\n\t\t\t$4\n\t\t},\n\t}\n\tfor _, tc := range tests {\n\t\tt.Run(tc.name, func(t *testing.T) {\n\t\t\t$0\n\t\t})\n\t}\n}",
+    "nameription": "Test cases"
+  },
   "table driven test": {
     "prefix": "tdt",
-    "body": "func Test$1(t *testing.T) {\n\ttestCases := []struct {\n\t\tname\tstring\n\t\t$2\n\t}{\n\t\t{\n\t\t\tname: \"$3\",\n\t\t\t$4\n\t\t},\n\t}\n\tfor _, tc := range testCases {\n\t\tt.Run(tc.name, func(t *testing.T) {\n\t\t\t$0\n\t\t})\n\t}\n}",
+    "body": "func Test$1(t *testing.T) {\n\ttests := []struct {\n\t\tname\tstring\n\t\t$2\n\t}{\n\t\t{\n\t\t\tname: \"$3\",\n\t\t\t$4\n\t\t},\n\t}\n\tfor _, tc := range tests {\n\t\tt.Run(tc.name, func(t *testing.T) {\n\t\t\t$0\n\t\t})\n\t}\n}",
     "nameription": "Snippet for table driven test"
   },
   "if err exp": {
@@ -122,6 +127,11 @@
   "function": {
     "prefix": "f",
     "body": "func $1($2) $3 {\n\t$0\n}",
+    "description": "function"
+  },
+  "receiver": {
+    "prefix": "re",
+    "body": "func ($1) $2($3) $4 {\n\t$0\n}",
     "description": "function"
   },
   "for": {

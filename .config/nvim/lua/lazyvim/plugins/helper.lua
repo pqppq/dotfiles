@@ -83,7 +83,7 @@ return {
 				desc = "Flash",
 			},
 			{
-				"<Space>l",
+				"<Space>s",
 				mode = { "n" },
 				function()
 					require("flash").jump({

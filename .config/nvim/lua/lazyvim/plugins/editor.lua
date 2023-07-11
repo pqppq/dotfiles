@@ -1,5 +1,15 @@
 return {
-"mg979/vim-visual-multi",
+	{
+		"kosayoda/nvim-lightbulb",
+		config = function()
+			require("nvim-lightbulb").setup({
+				autocmd = { enabled = true },
+				sign = { enabled = false },
+				virtual_text = { enabled = true },
+			})
+		end
+	},
+	"mg979/vim-visual-multi",
 	{
 		"mattn/emmet-vim",
 		config = function()
@@ -255,7 +265,7 @@ return {
 			{ "<Space>h",  "<cmd>Telescope help_tags<CR>" },
 			-- git
 			{ "<Space>gc", "<cmd>Telescope git_commits<CR>" },
-			{ "<Space>rr", mode = { "v" }, "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>" },
+			{ "<Space>rr", mode = { "v" },                                "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>" },
 		},
 		config = function()
 			require('telescope').setup {

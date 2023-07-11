@@ -86,14 +86,7 @@ return {
 				"<Space>s",
 				mode = { "n" },
 				function()
-					require("flash").jump({
-						search = {
-							forward = true,
-							mode = function(str)
-								return "\\<" .. str
-							end,
-						},
-					})
+					require("flash").jump()
 				end,
 			},
 			{

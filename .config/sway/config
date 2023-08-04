@@ -33,19 +33,6 @@ for_window [app_id="foot" title="menu"] {
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
 ### Input configuration
 #
 # Example configuration:
@@ -204,17 +191,18 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
+		mode hide
+    # position top
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    # # When the status_command prints a new line to stdout, swaybar updates.
+    # # The default just shows the current date and time.
+    # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    # colors {
+    #     statusline #ffffff
+    #     background #323232
+    #     inactive_workspace #32323200 #32323200 #5c5c5c
+    # }
 }
 
 # lock
@@ -236,13 +224,24 @@ output "*" background $XDG_CONFIG_HOME/sway/wallpaper.JPG fill
 
 exec fcitx5 -d
 
-exec_always $XDG_CONFIG_HOME/sway/import-gsettings \
-              gtk-theme:WhiteSur-Light \
-              icon-theme:Adwaita \
-              cursor-theme:Adwaita
+# auto start
+exec_always --no-startup-id waybar -c $XDG_CONFIG_HOME/waybar/config -s $XDG_CONFIG_HOME/waybar/style.css &
+
 # windos
-default_border none
-default_floating_border none
+## border
+## reference: https://github.com/Ruixi-rebirth/sway-dotfiles/blob/main/sway/config
+default_border pixel 3
+default_floating_border pixel 1
+smart_borders on
+gaps inner 5
+gaps outer 0
+client.focused          #ffc0cb #ffc0cb #ffffff
+client.unfocused        #2e3440 #1f222d #888888
+client.focused_inactive #2e3440 #1f222d #888888
+client.placeholder      #2e3440 #1f222d #888888
+client.urgent           #D08770 #D08770 #ffffff
+client.background       #242424
+
 # font pango:monospace 0
 titlebar_padding 1
 titlebar_border_thickness 0

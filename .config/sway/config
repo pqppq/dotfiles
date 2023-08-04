@@ -10,7 +10,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term wezterm
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -217,10 +217,19 @@ bar {
     }
 }
 
+# lock
+set $lockscreen "swaylock -c 000000"
+bindsym $mod+comma exec $lockscreen
+# https://github.com/swaywm/swayidle/issues/25
 exec swayidle -w \
-	timeout 1800 'swaylock -f' \
-	timeout 1805 'swaymsg "output * power off"' \
-	resume 'swaymsg "output * power on"'
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"'
+exec swayidle -w \
+    timeout 610 $lockscreen \
+    resume 'swaymsg "output * dpms on"'
+exec swayidle -w \
+    timeout 10 'if pgrep swaylock; then swaymsg "output * dpms off"; fi' \
+    resume 'if pgrep swaylock; then swaymsg "output * dpms on"; fi'
 
 # set wallpaper
 output "*" background $XDG_CONFIG_HOME/sway/wallpaper.JPG fill
@@ -231,5 +240,9 @@ exec_always $XDG_CONFIG_HOME/sway/import-gsettings \
               gtk-theme:WhiteSur-Light \
               icon-theme:Adwaita \
               cursor-theme:Adwaita
-
-include /etc/sway/config.d/*
+# windos
+default_border none
+default_floating_border none
+# font pango:monospace 0
+titlebar_padding 1
+titlebar_border_thickness 0

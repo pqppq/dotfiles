@@ -63,8 +63,13 @@ vim.opt.mouse = '' -- disable mouse touch
 -- vim.opt.signcolumn = 'auto:2'
 vim.opt.signcolumn = 'auto:2'
 
-vim.cmd('hi! StatusLine ctermbg=white ctermfg=black guibg=white guifg=black guibg=white guifg=black')
-vim.cmd('hi! Comment ctermfg=255')
+-- classic style status bar
+vim.cmd('hi! StatusLine guibg=white guifg=black')
+
+-- set this bg highlight for wezterm
+-- https://github.com/wez/wezterm/issues/3304
+vim.cmd('hi! Normal ctermbg=NONE guibg=NONE')
+vim.cmd('hi! NonText ctermbg=NONE guibg=NONE')
 
 vim.cmd('sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=')
 vim.cmd('sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=')

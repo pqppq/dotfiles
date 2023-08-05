@@ -14,13 +14,14 @@ set $term wezterm
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu foot -T menu bash -c 'compgen -c | sort -u | fzf | xargs swaymsg exec --'
-for_window [app_id="foot" title="menu"] {
-	floating enable
-	resize set width 25 ppt height 20 ppt
-	move position 0 px 0 px
-}
+# set $menu foot -T menu bash -c 'compgen -c | sort -u | fzf | xargs swaymsg exec --'
+# for_window [app_id="foot" title="menu"] {
+# 	floating enable
+# 	resize set width 25 ppt height 20 ppt
+# 	move position 0 px 0 px
+# }
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu wofi --show drun | xargs swaymsg exec --
 
 ### Output configuration
 #

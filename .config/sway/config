@@ -147,7 +147,11 @@ set $menu wofi --show drun | xargs swaymsg exec --
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
-    # Move focus to the parent container
+		# screenshot
+		bindsym Print exec grim -g "$(slurp)" ~/Screenshots/$(date +%s).png
+		bindsym $mod+Shift+s exec $XDG_CONFIG_HOME/sway/scripts/screenshot.sh
+
+    # Move focus to the parent containe
     bindsym $mod+a focus parent
 #
 # Scratchpad:

@@ -258,10 +258,10 @@ return {
 		"nvim-telescope/telescope.nvim",
 		dependeicies = { "plenary.nvim" },
 		keys = {
-			{ "<Space>f",  "<cmd>Telescope find_files hidden=true<CR>" },
-			{ "<Space>g",  "<cmd>Telescope live_grep<CR>" },
-			{ "<Space>b",  "<cmd>Telescope buffers<CR>" },
-			{ "<Space>j",  "<cmd>Telescope current_buffer_fuzzy_find<CR>" },
+			{ "<Space>f",  "<cmd>Telescope find_files hidden=true theme=dropdown<CR>" },
+			{ "<Space>g",  "<cmd>Telescope live_grep theme=dropdown<CR>" },
+			{ "<Space>b",  "<cmd>Telescope buffers theme=dropdown<CR>" },
+			{ "<Space>j",  "<cmd>Telescope current_buffer_fuzzy_find theme=dropdown<CR>" },
 			{ "<Space>h",  "<cmd>Telescope help_tags<CR>" },
 			-- git
 			{ "<Space>gc", "<cmd>Telescope git_commits<CR>" },

@@ -26,6 +26,8 @@ vim.cmd('autocmd FileType rust inoremap <C-s> ::')
 vim.cmd('filetype plugin indent on')
 vim.cmd("cnoreabbrev <expr> s getcmdtype() .. getcmdline() ==# ':s' ? [getchar(), ''][1] .. '%s///Ig<Left><Left><Left>' : 's'")
 
+vim.g.netrw_http_cmd = 'open'
+vim.g.mapleader = ' '
 vim.opt.laststatus = 2
 vim.opt.statusline = '%t'
 vim.opt.statusline:append '%m'

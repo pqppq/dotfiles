@@ -1,5 +1,30 @@
 return {
 	{
+		'nvim-orgmode/orgmode',
+		config = function()
+			-- Load custom treesitter grammar for org filetype
+			require('orgmode').setup_ts_grammar()
+
+			-- Treesitter configuration
+			require('nvim-treesitter.configs').setup {
+				-- If TS highlights are not enabled at all, or disabled via `disable` prop,
+				-- highlighting will fallback to default Vim syntax highlighting
+				highlight = {
+					enable = true,
+					-- Required for spellcheck, some LaTex highlights and
+					-- code block highlights that do not have ts grammar
+					additional_vim_regex_highlighting = { 'org' },
+				},
+				ensure_installed = { 'org' }, -- Or run :TSUpdate org
+			}
+
+			require('orgmode').setup({
+				org_agenda_files = { '~/orgmode/*' },
+				org_todo_keywords = {'TODO', 'STARTED', 'WAITING', '|', 'DONE', 'CANCELLED'},
+			})
+		end
+	},
+	{
 		"kosayoda/nvim-lightbulb",
 		config = function()
 			require("nvim-lightbulb").setup({
@@ -115,15 +140,15 @@ return {
 		},
 		config = function()
 			require('trouble').setup {
-				position = "bottom",        -- position of the list can be: bottom, top, left, right
-				height = 8,                 -- height of the trouble list when position is top or bottom
-				width = 50,                 -- width of the list when position is left or right
-				icons = true,               -- use devicons for filenames
+				position = "bottom", -- position of the list can be: bottom, top, left, right
+				height = 8, -- height of the trouble list when position is top or bottom
+				width = 50, -- width of the list when position is left or right
+				icons = true, -- use devicons for filenames
 				mode = "workspace_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
-				fold_open = "",          -- icon used for open folds
-				fold_closed = "",        -- icon used for closed folds
-				group = true,               -- group results by file
-				padding = true,             -- add an extra new line on top of the list
+				fold_open = "", -- icon used for open folds
+				fold_closed = "", -- icon used for closed folds
+				group = true, -- group results by file
+				padding = true, -- add an extra new line on top of the list
 				action_keys = {
 					-- key mappings for actions in the trouble list
 					-- map to {} to remove a mapping, for example:
@@ -265,7 +290,7 @@ return {
 			{ "<Space>h",  "<cmd>Telescope help_tags<CR>" },
 			-- git
 			{ "<Space>gc", "<cmd>Telescope git_commits<CR>" },
-			{ "<Space>rr", mode = { "v" },                                "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>" },
+			{ "<Space>rr", mode = { "v" },                                               "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>" },
 		},
 		config = function()
 			require('telescope').setup {

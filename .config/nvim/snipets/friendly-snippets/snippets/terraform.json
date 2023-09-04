@@ -1,6 +1,6 @@
 {
-	"terraform": {
-		"prefix": "terraform",
+	"required_providers": {
+		"prefix": "required_providers",
 		"body": [
 			"terraform {",
 			"	required_providers {",
@@ -8,12 +8,18 @@
 			"			source = \"hashicorp/aws\"",
 			"			version = \"~> 5.0\"",
 			"		}",
+			"",
+			"		#	backend \"s3\" {",
+			"		#		bucket = \"bucket name\"",
+			"		#		key = \"path/to/my/key\"",
+			"		#		region = \"\"",
+			"		#	}",
 			"	}",
 			"}"
 		]
 	},
-	"provider": {
-		"prefix": "provider",
+	"aws": {
+		"prefix": "aws",
 		"body": [
 			"provider \"aws\" {",
 			"	region = \"\"",

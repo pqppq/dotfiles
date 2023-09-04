@@ -397,6 +397,10 @@
         "path": "./snippets/frameworks/unreal.json"
       },
       {
+        "language": "terraform",
+        "path": "./snippets/terraform.json"
+      },
+      {
         "language": "verilog",
         "path": "./snippets/verilog.json"
       }

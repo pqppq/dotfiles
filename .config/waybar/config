@@ -11,7 +11,7 @@
 
     "modules-left":[  "custom/launcher", "wlr/taskbar"],
     "modules-center":["clock"],
-    "modules-right":["backlight", "temperature","cpu", "memory", "network","battery", "battery#bat2"],
+    "modules-right":["pulseaudio", "temperature","cpu", "memory", "network","battery", "battery#bat2"],
     // Modules configuration
 
     "wlr/taskbar": {
@@ -52,7 +52,7 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "{usage}% \uf4bc",
+        "format": "{usage}% \ue266",
         "tooltip": false
     },
     "memory": {

@@ -26,6 +26,26 @@ return {
 	{
 		'sindrets/diffview.nvim',
 		dependencies = { 'plenary.nvim' },
+		config = function()
+			require("diffview").setup({
+				enhanced_diff_hl = true,
+				use_icons = true,
+				view = {
+					-- default = {
+					-- 	layout = "diff3_mixed"
+					-- },
+					merge_tool = {
+						layout = "diff3_mixed",
+						winbar_info = false,
+						disable_diagnostics = true,
+					},
+					file_history = {
+						layout = "diff2_horizontal",
+						winbar_info = false,
+					}
+				}
+			})
+		end
 	},
 	'markonm/traces.vim',
 	'nvim-lua/plenary.nvim',

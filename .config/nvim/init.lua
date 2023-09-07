@@ -27,7 +27,7 @@ vim.cmd('filetype plugin indent on')
 vim.cmd("cnoreabbrev <expr> s getcmdtype() .. getcmdline() ==# ':s' ? [getchar(), ''][1] .. '%s///Ig<Left><Left><Left>' : 's'")
 
 vim.g.netrw_http_cmd = 'open'
-vim.g.mapleader = ' '
+-- vim.g.mapleader = '<Space>'
 vim.opt.laststatus = 2
 vim.opt.statusline = '%t'
 vim.opt.statusline:append '%m'
@@ -70,30 +70,26 @@ vim.cmd('hi! StatusLine guibg=white guifg=black')
 
 -- set this bg highlight for wezterm
 -- https://github.com/wez/wezterm/issues/3304
-vim.cmd('hi! Normal ctermbg=NONE guibg=NONE')
-vim.cmd('hi! NonText ctermbg=NONE guibg=NONE')
+-- vim.cmd('hi! Normal ctermbg=NONE guibg=NONE')
+-- vim.cmd('hi! NonText ctermbg=NONE guibg=NONE')
 
-vim.cmd('sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=')
-vim.cmd('sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=')
-vim.cmd('sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=')
-vim.cmd('sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=')
+vim.cmd('hi! DiffAdd ctermbg=NONE guibg=#083700')
+vim.cmd('hi! DiffDelete ctermbg=NONE guibg=#6E0801')
+vim.cmd('hi! DiffChange ctermbg=NONE guibg=#1C0690')
 
 local function format(diagnostic)
-	local icon = '✘'
-	-- local icon = ''
+	local icon = '🐛'
 	if diagnostic.severity == vim.diagnostic.severity.WARN then
-		icon = '▲'
-		-- icon = ''
+		icon = '🌶️'
 	end
 	if diagnostic.severity == vim.diagnostic.severity.HINT then
-		icon = '⚑'
-		-- icon = ''
+		icon = '🥜'
 	end
 	if diagnostic.severity == vim.diagnostic.severity.INFO then
-		icon = '»'
+		icon = '🍕'
 	end
 	if diagnostic.severity == vim.diagnostic.severity.OTHER then
-		icon = '»'
+		icon = ''
 	end
 
 	local message = string.format("%s %s", icon, diagnostic.message)

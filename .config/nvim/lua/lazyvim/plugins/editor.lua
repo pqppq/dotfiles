@@ -285,7 +285,7 @@ return {
 		keys = {
 			{ "<Space>ff",  "<cmd>Telescope find_files hidden=true theme=dropdown<CR>" },
 			{ "<Space>fj",  "<cmd>Telescope live_grep theme=dropdown<CR>" },
-			{ "<Space>l",  "<cmd>Telescope buffers theme=dropdown<CR>" },
+			{ "<Space>b",  "<cmd>Telescope buffers theme=dropdown<CR>" },
 			{ "<Space>fs",  "<cmd>Telescope current_buffer_fuzzy_find theme=dropdown<CR>" },
 			-- git
 			{ "<Space>gc", "<cmd>Telescope git_commits<CR>" },

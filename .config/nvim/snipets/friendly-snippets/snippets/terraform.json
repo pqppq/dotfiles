@@ -3351,6 +3351,35 @@
 			"}"
 		]
 	},
+	"internet_gateway": {
+		"prefix": "internet_gateway",
+		"body": [
+			"# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway",
+			"resource \"aws_internet_gateway\" \"gw\" {",
+			"  vpc_id = aws_vpc.main.id",
+			"",
+			"  tags = {",
+			"    Name = \"main\"",
+			"  }",
+			"}"
+		]
+	},
+	"internet_gateway_attachment": {
+		"prefix": "internet_gateway_attachment",
+		"body": [
+			"# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway_attachment",
+			"resource \"aws_internet_gateway_attachment\" \"example\" {",
+			"  internet_gateway_id = aws_internet_gateway.example.id",
+			"  vpc_id              = aws_vpc.example.id",
+			"}",
+			"",
+			"resource \"aws_vpc\" \"example\" {",
+			"  cidr_block = \"10.1.0.0/16\"",
+			"}",
+			"",
+			"resource \"aws_internet_gateway\" \"example\" {}"
+		]
+	},
 	"kms_alias": {
 		"prefix": "kms_alias",
 		"body": [
@@ -3866,6 +3895,24 @@
 			"}"
 		]
 	},
+	"nat_gateway": {
+		"prefix": "nat_gateway",
+		"body": [
+			"# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/nat_gateway",
+			"resource \"aws_nat_gateway\" \"example\" {",
+			"  allocation_id = aws_eip.example.id",
+			"  subnet_id     = aws_subnet.example.id",
+			"",
+			"  tags = {",
+			"    Name = \"gw NAT\"",
+			"  }",
+			"",
+			"  # To ensure proper ordering, it is recommended to add an explicit dependency",
+			"  # on the Internet Gateway for the VPC.",
+			"  depends_on = [aws_internet_gateway.example]",
+			"}"
+		]
+	},
 	"network_acl": {
 		"prefix": "network_acl",
 		"body": [
@@ -4375,6 +4422,18 @@
 			"}"
 		]
 	},
+	"route": {
+		"prefix": "route",
+		"body": [
+			"# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route",
+			"resource \"aws_route\" \"r\" {",
+			"  route_table_id            = \"rtb-4fbb3ac4\"",
+			"  destination_cidr_block    = \"10.0.1.0/22\"",
+			"  vpc_peering_connection_id = \"pcx-45ff3dc1\"",
+			"  depends_on                = [aws_route_table.testing]",
+			"}"
+		]
+	},
 	"route53_cidr_collection": {
 		"prefix": "route53_cidr_collection",
 		"body": [
@@ -4789,6 +4848,39 @@
 			"  resources {",
 			"    resource_arn = aws_cloudwatch_metric_alarm.example.arn",
 			"  }",
+			"}"
+		]
+	},
+	"route_table": {
+		"prefix": "route_table",
+		"body": [
+			"# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table",
+			"resource \"aws_route_table\" \"example\" {",
+			"  vpc_id = aws_vpc.example.id",
+			"",
+			"  route {",
+			"    cidr_block = \"10.0.1.0/24\"",
+			"    gateway_id = aws_internet_gateway.example.id",
+			"  }",
+			"",
+			"  route {",
+			"    ipv6_cidr_block        = \"::/0\"",
+			"    egress_only_gateway_id = aws_egress_only_internet_gateway.example.id",
+			"  }",
+			"",
+			"  tags = {",
+			"    Name = \"example\"",
+			"  }",
+			"}"
+		]
+	},
+	"route_table_association": {
+		"prefix": "route_table_association",
+		"body": [
+			"# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table_association",
+			"resource \"aws_route_table_association\" \"a\" {",
+			"  subnet_id      = aws_subnet.foo.id",
+			"  route_table_id = aws_route_table.bar.id",
 			"}"
 		]
 	},

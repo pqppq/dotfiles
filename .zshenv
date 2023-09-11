@@ -1,7 +1,11 @@
 # alias nvim=PATH_TO_NVIM
 alias v=~/nvim-linux64/bin/nvim
+alias open=xdg-open
+alias v=nvim
+alias diff='nvim -d '
 alias vimdiff='nvim -d '
 alias fd=fdfind
+alias cat=bat
 
 alias rm=trash-put
 alias te=trash-empty

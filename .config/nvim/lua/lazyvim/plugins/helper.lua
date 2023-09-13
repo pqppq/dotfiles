@@ -80,7 +80,7 @@ return {
 		'phaazon/hop.nvim',
 		keys = {
 			{ "<Space>s", "<cmd>HopWord<CR>" },
-			{ "<Space>l", "<cmd>HopWordCurrentLine<CR>" },
+			{ "<Space>l", "<cmd>HopWordCurrentLine<CR>", mode={"n", "v"} },
 			-- { "<Space>S", "<cmd>HopChar1<cr>" },
 			{ "<Space>k", "<cmd>HopLine<CR>" },
 		},

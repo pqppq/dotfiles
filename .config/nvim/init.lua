@@ -68,6 +68,7 @@ vim.opt.signcolumn = 'auto:2'
 -- classic style status bar
 vim.cmd('hi! StatusLine guibg=white guifg=black')
 
+vim.cmd('hi! Cursor guibg=#DFE015 guifg=#DFE015')
 -- set this bg highlight for wezterm
 -- https://github.com/wez/wezterm/issues/3304
 -- vim.cmd('hi! Normal ctermbg=NONE guibg=NONE')

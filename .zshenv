@@ -7,11 +7,11 @@ alias vimdiff='nvim -d '
 alias fd=fdfind
 alias cat=bat
 
-alias rm=trash-put
-alias te=trash-empty
-alias tl=trash-list
-alias tr=trash-restore
-alias td=trash-rm
+# alias rm=trash-put
+# alias te=trash-empty
+# alias tl=trash-list
+# alias tr=trash-restore
+# alias td=trash-rm
 
 alias lg=lazygit
 alias ld=lazydocker

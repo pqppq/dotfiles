@@ -125,7 +125,8 @@ autoload -U compinit && compinit -u
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-. ~/.asdf/asdf.sh
+# setup asdf
+. "$HOME/.asdf/asdf.sh"
 # for macOS
 #. /opt/homebrew/opt/asdf/libexec/asdf.sh
 

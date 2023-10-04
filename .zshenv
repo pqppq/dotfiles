@@ -18,10 +18,8 @@ alias ld=lazydocker
 
 export XDG_CONFIG_HOME=~/dotfiles/.config
 export EDITOR=nvim
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export GOPATH=~/go
-export GOBIN=$GOPATH/bin
+# export LANG=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
 export LIBGL_ALWAYS_INDIRECT=1
 export DENO_INSTALL=~/.deno/bin
 

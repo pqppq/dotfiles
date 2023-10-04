@@ -60,7 +60,8 @@ return {
 		event = { 'BufReadPost', 'BufNewFile' },
 		config = function()
 			require 'nvim-treesitter.configs'.setup {
-				ensure_installed = 'all',
+				ensure_installed = { "python", "lua", "javascript", "typescript", "tsx", "html", "css", "json", "yaml", "toml",
+					"bash", "cpp", "rust", "go", "dockerfile" },
 				highlight = {
 					enable = true,
 					disable = {},

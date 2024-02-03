@@ -29,11 +29,22 @@ return {
 					'onsails/lspkind.nvim',
 					'L3MON4D3/LuaSnip',
 					'saadparwaiz1/cmp_luasnip',
+					{
+						'Saecki/crates.nvim',
+						dependencies = { 'nvim-lua/plenary.nvim' }
+					}
 				},
 				config = function()
 					local cmp = require("cmp")
 					local types = require("cmp.types")
 					local comparator = require("cmp-under-comparator")
+
+					-- for rust crate
+					require("crates").setup({
+						src = {
+							cmp = { enable = true }
+						}
+					})
 
 					-- Global setup
 					cmp.setup({
@@ -134,6 +145,7 @@ return {
 							},
 							{ name = 'path',       max_item_count = 5, priority = 40 },
 							{ name = 'dictionary', keyword_lengt = 2,  max_item_count = 5, priority = 10 },
+							{ name = 'crates',     priority = 10 }, -- for rust crate
 						}),
 						mapping = {
 						},
@@ -238,6 +250,29 @@ return {
 						luasnip.expand_or_jump()
 					end
 				end, opts)
+
+				local crates = require('crates')
+				vim.keymap.set('n', '<space>ct', crates.toggle, opts)
+				vim.keymap.set('n', '<space>cr', crates.reload, opts)
+
+				vim.keymap.set('n', '<space>cv', crates.show_versions_popup, opts)
+				vim.keymap.set('n', '<space>cf', crates.show_features_popup, opts)
+				vim.keymap.set('n', '<space>cd', crates.show_dependencies_popup, opts)
+
+				vim.keymap.set('n', '<space>cu', crates.update_crate, opts)
+				vim.keymap.set('v', '<space>cu', crates.update_crates, opts)
+				vim.keymap.set('n', '<space>ca', crates.update_all_crates, opts)
+				vim.keymap.set('n', '<space>cU', crates.upgrade_crate, opts)
+				vim.keymap.set('v', '<space>cU', crates.upgrade_crates, opts)
+				vim.keymap.set('n', '<space>cA', crates.upgrade_all_crates, opts)
+
+				vim.keymap.set('n', '<space>ce', crates.expand_plain_crate_to_inline_table, opts)
+				vim.keymap.set('n', '<space>cE', crates.extract_crate_into_table, opts)
+
+				vim.keymap.set('n', '<space>cH', crates.open_homepage, opts)
+				vim.keymap.set('n', '<space>cR', crates.open_repository, opts)
+				vim.keymap.set('n', '<space>cD', crates.open_documentation, opts)
+				vim.keymap.set('n', '<space>cC', crates.open_crates_io, opts)
 			end)
 
 			-- (Optional) Configure lua language server for neovim
@@ -267,6 +302,22 @@ return {
 						}
 					}
 				}
+			})
+			lspconfig["rust_analyzer"].setup({
+				imports = {
+					granularity = {
+						group = "module",
+					},
+					prefix = "self",
+				},
+				cargo = {
+					buildScripts = {
+						enable = true,
+					},
+				},
+				procMacro = {
+					enable = true
+				},
 			})
 
 			lsp.setup()

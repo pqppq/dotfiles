@@ -283,13 +283,13 @@ return {
 		"nvim-telescope/telescope.nvim",
 		dependeicies = { "plenary.nvim" },
 		keys = {
-			{ "<Space>ff",  "<cmd>Telescope find_files hidden=true theme=dropdown<CR>" },
-			{ "<Space>fj",  "<cmd>Telescope live_grep theme=dropdown<CR>" },
+			{ "<Space>ff", "<cmd>Telescope find_files hidden=true theme=dropdown<CR>" },
+			{ "<Space>fj", "<cmd>Telescope live_grep theme=dropdown<CR>" },
 			{ "<Space>b",  "<cmd>Telescope buffers theme=dropdown<CR>" },
-			{ "<Space>fs",  "<cmd>Telescope current_buffer_fuzzy_find theme=dropdown<CR>" },
+			{ "<Space>fs", "<cmd>Telescope current_buffer_fuzzy_find theme=dropdown<CR>" },
 			-- git
 			{ "<Space>gc", "<cmd>Telescope git_commits<CR>" },
-			{ "<Space>rr", mode = { "v" }, "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>" },
+			{ "<Space>rr", mode = { "v" },                                               "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>" },
 		},
 		config = function()
 			require('telescope').setup {
@@ -324,7 +324,7 @@ return {
 						-- Now the picker_config_key will be applied every time you call this
 						-- builtin picker
 					},
-					extensions = {
+				extensions = {
 						'refactoring'
 					},
 				},
@@ -398,7 +398,7 @@ return {
 				persist_mode = true,  -- if set to true (default) the previous terminal mode will be remembered
 				direction = 'float',  -- 'vertical' | 'horizontal' | 'tab' | 'float',
 				close_on_exit = true, -- close the terminal window when the process exits
-				shell = '/bin/zsh',  -- change the default shell
+				shell = '/bin/zsh',   -- change the default shell
 				auto_scroll = true,   -- automatically scroll to the bottom on terminal output
 				-- This field is only relevant if direction is set to 'float'
 				float_opts = {
@@ -422,4 +422,21 @@ return {
 			}
 		end,
 	},
+	{
+		"xiyaowong/transparent.nvim",
+		config = function()
+			require("transparent").setup({ -- Optional, you don't have to run setup.
+				groups = {                 -- table: default groups
+					'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
+					'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
+					'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
+					'SignColumn', 'CursorLineNr', 'EndOfBuffer',
+				},
+				extra_groups = {}, -- table: additional groups that should be cleared
+				exclude_groups = {}, -- table: groups you don't want to clear
+				enable = true,
+			})
+		end
+
+	}
 }

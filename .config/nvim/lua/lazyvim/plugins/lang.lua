@@ -20,12 +20,8 @@ return {
 		end
 	},
 	{
-		'simrat39/rust-tools.nvim',
-		dependeicies = { "plenary.nvim" },
-		config = function()
-			local rt = require("rust-tools")
-
-			rt.setup({})
-		end
+		'mrcjkb/rustaceanvim',
+		version = '^3', -- Recommended
+		ft = { 'rust' },
 	}
 }

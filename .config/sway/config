@@ -225,7 +225,7 @@ exec swayidle -w \
     resume 'if pgrep swaylock; then swaymsg "output * dpms on"; fi'
 
 # set wallpaper
-output "*" background $XDG_CONFIG_HOME/sway/wallpaper.JPG fill
+output "*" background $XDG_CONFIG_HOME/sway/Hiroshi-Sugimoto-Tasman-Sea-Ngarupupu-1990.jpg fill
 
 exec fcitx5 -d
 
@@ -238,7 +238,7 @@ exec_always --no-startup-id waybar -c $XDG_CONFIG_HOME/waybar/config -s $XDG_CON
 default_border pixel 3
 default_floating_border pixel 1
 smart_borders on
-gaps inner 5
+gaps inner 8
 gaps outer 0
 client.focused          #ffc0cb #ffc0cb #ffffff
 client.unfocused        #2e3440 #1f222d #888888
@@ -250,3 +250,9 @@ client.background       #242424
 # font pango:monospace 0
 titlebar_padding 1
 titlebar_border_thickness 0
+
+# volume control (ensure that bc is installed)
+bindsym XF86AudioRaiseVolume exec /home/imran/bin/pipewire-volume.sh +1
+bindsym XF86AudioLowerVolume exec /home/imran/bin/pipewire-volume.sh -1
+bindsym XF86AudioMute exec /home/imran/bin/pipewire-volume.sh m
+bindsym XF86AudioMicMute exec /home/imran/bin/pipewire-volume.sh m

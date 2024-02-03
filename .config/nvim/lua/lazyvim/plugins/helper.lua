@@ -81,7 +81,7 @@ return {
 		'phaazon/hop.nvim',
 		keys = {
 			{ "<Space>s", "<cmd>HopWord<CR>" },
-			{ "<Space>l", "<cmd>HopWordCurrentLine<CR>", mode={"n", "v"} },
+			{ "<Space>l", "<cmd>HopWordCurrentLine<CR>", mode = { "n", "v" } },
 			-- { "<Space>S", "<cmd>HopChar1<cr>" },
 			{ "<Space>k", "<cmd>HopLine<CR>" },
 		},
@@ -115,13 +115,13 @@ return {
 			-- 	end,
 			-- 	desc = "Flash",
 			-- },
-			{
-				"<Space>S",
-				mode = { "n" },
-				function()
-					require("flash").jump()
-				end,
-			},
+			-- {
+			-- 	"<Space>S",
+			-- 	mode = { "n" },
+			-- 	function()
+			-- 		require("flash").jump()
+			-- 	end,
+			-- },
 			{
 				"<Space>v",
 				mode = { "n" },
@@ -231,5 +231,12 @@ return {
 				}
 			})
 		end
+	},
+	-- install without yarn or npm
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function() vim.fn["mkdp#util#install"]() end,
 	}
 }

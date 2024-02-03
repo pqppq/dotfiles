@@ -19,7 +19,7 @@ config.font = wezterm.font("HackGen Console NF", {weight="Regular"})
 -- wezterm ls-fonts --list-system
 config.font_size = 11.0
 --config.color_scheme = 'AdventureTime'
-config.window_background_opacity = 1
+config.window_background_opacity = 0.8
 -- config.window_background_opacity = 0.9
 config.window_padding = {
   left = 0,

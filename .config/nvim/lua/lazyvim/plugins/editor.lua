@@ -2,9 +2,6 @@ return {
 	{
 		'nvim-orgmode/orgmode',
 		config = function()
-			-- Load custom treesitter grammar for org filetype
-			require('orgmode').setup_ts_grammar()
-
 			-- Treesitter configuration
 			require('nvim-treesitter.configs').setup {
 				-- If TS highlights are not enabled at all, or disabled via `disable` prop,
@@ -406,7 +403,6 @@ return {
 				},
 				extra_groups = {}, -- table: additional groups that should be cleared
 				exclude_groups = {}, -- table: groups you don't want to clear
-				enable = true,
 			})
 		end
 

@@ -24,7 +24,6 @@ return {
 					'hrsh7th/cmp-buffer',
 					'hrsh7th/cmp-path',
 					'hrsh7th/cmp-cmdline',
-					'uga-rosa/cmp-dictionary',
 					'lukas-reineke/cmp-under-comparator',
 					'onsails/lspkind.nvim',
 					'L3MON4D3/LuaSnip',
@@ -98,7 +97,6 @@ return {
 									calc = "[Calc]",
 									rg = "[Rg]",
 									treesitter = "[TS]",
-									dictionary = "[Dictionary]",
 									mocword = "[mocword]",
 									cmdline_history = "[History]",
 								},
@@ -170,24 +168,10 @@ return {
 								}
 							},
 							{ name = 'path',       max_item_count = 5, priority = 40 },
-							{ name = 'dictionary', keyword_lengt = 2,  max_item_count = 5, priority = 10 },
 							{ name = 'crates',     priority = 10 }, -- for rust crate
 						}),
 						mapping = {
 						},
-					})
-
-					require("cmp_dictionary").setup({
-						dic = {
-							["*"] = { "/usr/share/dict/words" }
-						},
-						exact = 2,
-						first_case_insensitive = false,
-						document = false,
-						document_command = "wn %s -over",
-						async = false,
-						capacity = 5,
-						debug = false,
 					})
 
 					-- Set configuration for specific filetype.
@@ -223,7 +207,7 @@ return {
 				event = { "BufReadPre", "BufNewFile" },
 				dependencies = {
 					"williamboman/mason.nvim",
-					"jose-elias-alvarez/null-ls.nvim",
+					"nvimtools/none-ls.nvim",
 				},
 				config = function()
 					require("mason").setup()
@@ -303,13 +287,15 @@ return {
 
 			-- (Optional) Configure lua language server for neovim
 			lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+			local util = lspconfig.util
+
 			-- server settings
-			local node_root_dir = lspconfig.util.root_pattern("package.json", "node_modules")
-			local deno_root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json")
+			local node_root_dir = util.root_pattern("package.json", "node_modules")
+			local deno_root_dir = util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json")
 			lspconfig["tsserver"].setup({ root_dir = node_root_dir, autostart = true })
 			lspconfig["eslint"].setup({
 				root_dir = node_root_dir,
-				autostart = lspconfig.util.root_pattern(".eslintrc.js", ".eslint.cjs", ".eslintrc.yaml", ".eslintrc.yml",
+				autostart = util.root_pattern(".eslintrc.js", ".eslint.cjs", ".eslintrc.yaml", ".eslintrc.yml",
 					"package.json") ~= nil
 			})
 			lspconfig["denols"].setup({

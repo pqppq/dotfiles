@@ -35,58 +35,30 @@ return {
 		end
 	},
 	"mg979/vim-visual-multi",
+	"kevinhwang91/nvim-bqf",
+	{
+		'monaqa/dial.nvim',
+		keys = {
+			{ "<C-a>", mode = { "n" }, "<Plug>(dial-increment)" },
+			{ "<C-x>", mode = { "n" }, "<Plug>(dial-decrement)" },
+		},
+		config = function()
+			local augend = require("dial.augend")
+			require("dial.config").augends:register_group{
+				default = {
+					augend.integer.alias.decimal,
+					augend.integer.alias.hex,
+					augend.date.alias["%Y/%m/%d"],
+					augend.constant.alias.bool,
+				},
+			}
+		end
+	},
 	{
 		"mattn/emmet-vim",
 		config = function()
 			-- vim.cmd("let g:user_emmet_mode=''")
 			-- vim.cmd("let g:user_emmet_leader_key='<c-e>'")
-		end
-	},
-	{
-		'zbirenbaum/copilot.lua',
-		config = function()
-			require('copilot').setup({
-				panel = {
-					enabled = true,
-					auto_refresh = false,
-					keymap = {
-						jump_prev = "[[",
-						jump_next = "]]",
-						accept = "<CR>",
-						refresh = "gr",
-						open = "<M-CR>"
-					},
-					layout = {
-						position = "bottom", -- | top | left | right
-						ratio = 0.4
-					},
-				},
-				suggestion = {
-					enabled = true,
-					auto_trigger = true,
-					debounce = 75,
-					keymap = {
-						accept = "<S-Tab>",
-						accept_word = false,
-						accept_line = false,
-						next = "<C-]>",
-						prev = "<C-[>",
-						-- dismiss = "<C-]>",
-					},
-				},
-				filetypes = {
-					yaml = false,
-					markdown = false,
-					help = false,
-					gitrebase = false,
-					hgcommit = false,
-					svn = false,
-					cvs = false,
-					["."] = false,
-				},
-				copilot_node_command = 'node', -- Node.js version must be > 16.x
-				server_opts_overrides = {},
-			})
 		end
 	},
 	{

@@ -31,31 +31,32 @@ return {
 					{
 						'Saecki/crates.nvim',
 						dependencies = { 'nvim-lua/plenary.nvim' },
+						event = { "BufRead Cargo.toml" },
 						config = function()
 							local crates = require("crates")
 							local opts = { silent = true }
 
-							vim.keymap.set("n", "<leader>ct", crates.toggle, opts)
-							vim.keymap.set("n", "<leader>cr", crates.reload, opts)
+							vim.keymap.set("n", "<Space>ct", crates.toggle, opts)
+							vim.keymap.set("n", "<Space>cr", crates.reload, opts)
 
-							vim.keymap.set("n", "<leader>cv", crates.show_versions_popup, opts)
-							vim.keymap.set("n", "<leader>cf", crates.show_features_popup, opts)
-							vim.keymap.set("n", "<leader>cd", crates.show_dependencies_popup, opts)
+							vim.keymap.set("n", "<Space>cv", crates.show_versions_popup, opts)
+							vim.keymap.set("n", "<Space>cf", crates.show_features_popup, opts)
+							vim.keymap.set("n", "<Space>cd", crates.show_dependencies_popup, opts)
 
-							vim.keymap.set("n", "<leader>cu", crates.update_crate, opts)
-							vim.keymap.set("v", "<leader>cu", crates.update_crates, opts)
-							vim.keymap.set("n", "<leader>ca", crates.update_all_crates, opts)
-							vim.keymap.set("n", "<leader>cU", crates.upgrade_crate, opts)
-							vim.keymap.set("v", "<leader>cU", crates.upgrade_crates, opts)
-							vim.keymap.set("n", "<leader>cA", crates.upgrade_all_crates, opts)
+							vim.keymap.set("n", "<Space>cu", crates.update_crate, opts)
+							vim.keymap.set("v", "<Space>cu", crates.update_crates, opts)
+							vim.keymap.set("n", "<Space>cU", crates.upgrade_crate, opts)
+							vim.keymap.set("v", "<Space>cU", crates.upgrade_crates, opts)
+							-- vim.keymap.set("n", "<Space>ca", crates.update_all_crates, opts)
+							vim.keymap.set("n", "<Space>cA", crates.upgrade_all_crates, opts)
 
-							vim.keymap.set("n", "<leader>cx", crates.expand_plain_crate_to_inline_table, opts)
-							vim.keymap.set("n", "<leader>cX", crates.extract_crate_into_table, opts)
+							vim.keymap.set("n", "<Space>cx", crates.expand_plain_crate_to_inline_table, opts)
+							vim.keymap.set("n", "<Space>cX", crates.extract_crate_into_table, opts)
 
-							vim.keymap.set("n", "<leader>cH", crates.open_homepage, opts)
-							vim.keymap.set("n", "<leader>cR", crates.open_repository, opts)
-							vim.keymap.set("n", "<leader>cD", crates.open_documentation, opts)
-							vim.keymap.set("n", "<leader>cC", crates.open_crates_io, opts)
+							vim.keymap.set("n", "<Space>cH", crates.open_homepage, opts)
+							vim.keymap.set("n", "<Space>cR", crates.open_repository, opts)
+							vim.keymap.set("n", "<Space>cD", crates.open_documentation, opts)
+							vim.keymap.set("n", "<Space>cC", crates.open_crates_io, opts)
 						end
 					}
 				},
@@ -167,8 +168,8 @@ return {
 									end
 								}
 							},
-							{ name = 'path',       max_item_count = 5, priority = 40 },
-							{ name = 'crates',     priority = 10 }, -- for rust crate
+							{ name = 'path',   max_item_count = 5, priority = 40 },
+							{ name = 'crates', priority = 10 }, -- for rust crate
 						}),
 						mapping = {
 						},
@@ -260,29 +261,6 @@ return {
 						luasnip.expand_or_jump()
 					end
 				end, opts)
-
-				local crates = require('crates')
-				vim.keymap.set('n', '<space>ct', crates.toggle, opts)
-				vim.keymap.set('n', '<space>cr', crates.reload, opts)
-
-				vim.keymap.set('n', '<space>cv', crates.show_versions_popup, opts)
-				vim.keymap.set('n', '<space>cf', crates.show_features_popup, opts)
-				vim.keymap.set('n', '<space>cd', crates.show_dependencies_popup, opts)
-
-				vim.keymap.set('n', '<space>cu', crates.update_crate, opts)
-				vim.keymap.set('v', '<space>cu', crates.update_crates, opts)
-				vim.keymap.set('n', '<space>ca', crates.update_all_crates, opts)
-				vim.keymap.set('n', '<space>cU', crates.upgrade_crate, opts)
-				vim.keymap.set('v', '<space>cU', crates.upgrade_crates, opts)
-				vim.keymap.set('n', '<space>cA', crates.upgrade_all_crates, opts)
-
-				vim.keymap.set('n', '<space>ce', crates.expand_plain_crate_to_inline_table, opts)
-				vim.keymap.set('n', '<space>cE', crates.extract_crate_into_table, opts)
-
-				vim.keymap.set('n', '<space>cH', crates.open_homepage, opts)
-				vim.keymap.set('n', '<space>cR', crates.open_repository, opts)
-				vim.keymap.set('n', '<space>cD', crates.open_documentation, opts)
-				vim.keymap.set('n', '<space>cC', crates.open_crates_io, opts)
 			end)
 
 			-- (Optional) Configure lua language server for neovim

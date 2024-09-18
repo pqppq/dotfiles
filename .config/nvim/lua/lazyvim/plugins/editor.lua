@@ -41,7 +41,7 @@ return {
 		},
 		config = function()
 			local augend = require("dial.augend")
-			require("dial.config").augends:register_group{
+			require("dial.config").augends:register_group {
 				default = {
 					augend.integer.alias.decimal,
 					augend.integer.alias.hex,
@@ -51,13 +51,13 @@ return {
 			}
 		end
 	},
-	{
-		"mattn/emmet-vim",
-		config = function()
-			-- vim.cmd("let g:user_emmet_mode=''")
-			-- vim.cmd("let g:user_emmet_leader_key='<c-e>'")
-		end
-	},
+	-- {
+	-- 	"mattn/emmet-vim",
+	-- 	config = function()
+	-- 		-- vim.cmd("let g:user_emmet_mode=''")
+	-- 		-- vim.cmd("let g:user_emmet_leader_key='<c-e>'")
+	-- 	end
+	-- },
 	{
 		"folke/zen-mode.nvim",
 		config = function()
@@ -265,14 +265,12 @@ return {
 				defaults = {
 					file_ignore_patterns = { "node_modules", ".git" },
 					vimgrep_arguments = {
-						"rg",
-						"--color=never",
-						"--no-heading",
-						"--with-filename",
-						"--line-number",
+						"ag",
+						"--nocolor",
+						"--noheading",
+						"--numbers",
 						"--column",
 						"--smart-case",
-						"--hidden",
 					},
 					mappings = {
 						i = {
@@ -293,7 +291,7 @@ return {
 						-- Now the picker_config_key will be applied every time you call this
 						-- builtin picker
 					},
-				extensions = {
+					extensions = {
 						'refactoring'
 					},
 				},
@@ -395,7 +393,7 @@ return {
 		"xiyaowong/transparent.nvim",
 		config = function()
 			require("transparent").setup({ -- Optional, you don't have to run setup.
-				groups = {                 -- table: default groups
+				groups = {                -- table: default groups
 					'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
 					'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
 					'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',

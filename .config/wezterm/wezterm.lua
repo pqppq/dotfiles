@@ -14,6 +14,7 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+config.front_end = "WebGpu"
 config.enable_tab_bar = false
 config.font = wezterm.font("HackGen Console NF", {weight="Regular"})
 -- wezterm ls-fonts --list-system

@@ -67,9 +67,15 @@ return {
 
 					-- for rust crate
 					require("crates").setup({
-						src = {
-							cmp = { enable = true }
-						}
+						lsp = {
+							enabled = true,
+							on_attach = function(client, bufnr)
+								-- the same on_attach function as for your other lsp's
+							end,
+							actions = true,
+							completion = true,
+							hover = true,
+						},
 					})
 
 					-- Global setup

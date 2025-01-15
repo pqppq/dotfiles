@@ -265,12 +265,14 @@ return {
 				defaults = {
 					file_ignore_patterns = { "node_modules", ".git" },
 					vimgrep_arguments = {
-						"ag",
-						"--nocolor",
-						"--noheading",
-						"--numbers",
+						"rg",
+						"--color=never",
+						"--no-heading",
+						"--with-filename",
+						"--line-number",
 						"--column",
 						"--smart-case",
+						"--trim"
 					},
 					mappings = {
 						i = {
@@ -342,7 +344,7 @@ return {
 				-- size can be a number or function which is passed the current terminal
 				size = function(term)
 					if term.direction == "horizontal" then
-						return 15
+						return 40
 					elseif term.direction == "vertical" then
 						return vim.o.columns * 0.4
 					end
@@ -363,7 +365,7 @@ return {
 				terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
 				persist_size = true,
 				persist_mode = true,  -- if set to true (default) the previous terminal mode will be remembered
-				direction = 'float',  -- 'vertical' | 'horizontal' | 'tab' | 'float',
+				direction = 'tab',    -- 'vertical' | 'horizontal' | 'tab' | 'float',
 				close_on_exit = true, -- close the terminal window when the process exits
 				shell = '/bin/zsh',   -- change the default shell
 				auto_scroll = true,   -- automatically scroll to the bottom on terminal output
@@ -404,5 +406,22 @@ return {
 			})
 		end
 
+	},
+	{
+		"stevearc/aerial.nvim",
+		config = function()
+			require("aerial").setup({
+				-- optionally use on_attach to set keymaps when aerial has attached to a buffer
+				layout = { width = 40 },
+				autojump = true,
+				on_attach = function(bufnr)
+					-- Jump forwards/backwards with '{' and '}'
+					vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+					vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
+				end,
+			})
+			-- You probably also want to set a keymap to toggle aerial
+			vim.keymap.set("n", "<Space>a", "<cmd>AerialToggle!<CR>")
+		end
 	}
 }

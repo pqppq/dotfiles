@@ -7,9 +7,6 @@ vim.api.nvim_set_keymap('n', 'R', ":%s/<C-r>=expand('<cword>')<CR>//g<Left><Left
 vim.api.nvim_set_keymap('n', '<C-l>', ':<C-u>nohlsearch<CR><C-l>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'm', 'daw', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-I>', '<Tab>', { noremap = true })
--- vim.api.nvim_set_keymap('n', 'tt', ':tabnew<CR>', { noremap = true })
--- vim.api.nvim_set_keymap('n', 'tn', ':tabnext<CR>', { noremap = true })
--- vim.api.nvim_set_keymap('n', 'tp', ':tabprevious<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'X', ':bdelete<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-S>', ':w<CR>', { noremap = true })
 vim.api.nvim_set_keymap('i', 'jk', '<Esc>', { noremap = true })
@@ -28,7 +25,6 @@ vim.cmd('filetype plugin indent on')
 vim.cmd("cnoreabbrev <expr> s getcmdtype() .. getcmdline() ==# ':s' ? [getchar(), ''][1] .. '%s///Ig<Left><Left><Left>' : 's'")
 
 vim.g.netrw_http_cmd = 'open'
--- vim.g.mapleader = '<Space>'
 vim.opt.laststatus = 2
 vim.opt.statusline = '%t'
 vim.opt.statusline:append '%m'
@@ -56,24 +52,22 @@ vim.opt.confirm = true
 vim.opt.errorbells = false
 vim.opt.showmatch = true
 vim.opt.matchtime = 1
--- vim.opt.shellslash = true
 vim.opt.display = 'lastline'
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.swapfile = false
 vim.opt.clipboard:append 'unnamed'
 vim.opt.mouse = '' -- disable mouse touch
--- vim.opt.signcolumn = 'auto:2'
 vim.opt.signcolumn = 'auto:2'
+
+vim.wo.wrap = false
+-- vim.wo.list = true
+vim.wo.linebreak = true
 
 -- classic style status bar
 vim.cmd('hi! StatusLine guibg=white guifg=black')
 
 vim.cmd('hi! Cursor guibg=#DFE015 guifg=#DFE015')
--- set this bg highlight for wezterm
--- https://github.com/wez/wezterm/issues/3304
--- vim.cmd('hi! Normal ctermbg=NONE guibg=NONE')
--- vim.cmd('hi! NonText ctermbg=NONE guibg=NONE')
 
 vim.cmd('hi! DiffAdd ctermbg=NONE guibg=#083700')
 vim.cmd('hi! DiffDelete ctermbg=NONE guibg=#6E0801')

@@ -14,6 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = '<Space>'
 
 require('lazy').setup('lazyvim/plugins')
---vim.cmd.colorscheme('iceberg')
---vim.cmd.colorscheme('catppuccin')
-vim.cmd.colorscheme('rose-pine')
+-- vim.cmd.colorscheme('iceberg')
+-- vim.cmd.colorscheme('catppuccin')vim
+
+vim.cmd("hi clear")
+-- vim.cmd("colorscheme vim")
+-- vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme catppuccin")
+-- vim.cmd("set notermguicolors")

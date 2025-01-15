@@ -410,6 +410,11 @@
     ],
     "description": "struct … { … }"
   },
+  "tests": {
+    "prefix": "tests",
+    "body": ["#[cfg(test)]", "mod tests {", "    use super::*;", "}"],
+    "description": "#[cfg(test)]"
+  },
   "test": {
     "prefix": "test",
     "body": ["#[test]", "fn ${1:name}() {", "    ${2:unimplemented!();}", "}"],

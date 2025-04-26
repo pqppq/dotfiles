@@ -24,6 +24,7 @@ return {
 					'hrsh7th/cmp-buffer',
 					'hrsh7th/cmp-path',
 					'hrsh7th/cmp-cmdline',
+					'uga-rosa/cmp-dictionary',
 					'lukas-reineke/cmp-under-comparator',
 					'onsails/lspkind.nvim',
 					'L3MON4D3/LuaSnip',
@@ -174,11 +175,16 @@ return {
 									end
 								}
 							},
-							{ name = 'path',   max_item_count = 5, priority = 40 },
-							{ name = 'crates', priority = 10 }, -- for rust crate
+							{ name = 'path',       max_item_count = 5, priority = 40 },
+							{ name = 'dictionary', priority = 10,      keyword_length = 3 },
+							{ name = 'crates',     priority = 10 }, -- for rust crate
 						}),
 						mapping = {
 						},
+					})
+					require("cmp_dictionary").setup({
+						paths = { vim.fn.stdpath("config") .. "/words" },
+						exact_length = 3,
 					})
 
 					-- Set configuration for specific filetype.

@@ -258,7 +258,7 @@ return {
 			{ "<Space>fs", "<cmd>Telescope current_buffer_fuzzy_find theme=dropdown<CR>" },
 			-- git
 			{ "<Space>gc", "<cmd>Telescope git_commits<CR>" },
-			{ "<Space>rr", mode = { "v" },                                               "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>" },
+			{ "<Space>R", mode = { "v" }, "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>" },
 		},
 		config = function()
 			require('telescope').setup {
@@ -365,7 +365,7 @@ return {
 				terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
 				persist_size = true,
 				persist_mode = true,  -- if set to true (default) the previous terminal mode will be remembered
-				direction = 'float',    -- 'vertical' | 'horizontal' | 'tab' | 'float',
+				direction = 'float',  -- 'vertical' | 'horizontal' | 'tab' | 'float',
 				close_on_exit = true, -- close the terminal window when the process exits
 				shell = '/bin/zsh',   -- change the default shell
 				auto_scroll = true,   -- automatically scroll to the bottom on terminal output
@@ -423,5 +423,24 @@ return {
 			-- You probably also want to set a keymap to toggle aerial
 			vim.keymap.set("n", "<Space>a", "<cmd>AerialToggle!<CR>")
 		end
-	}
+	},
+	{
+		"michaelb/sniprun",
+		branch = "master",
+
+		build = "sh install.sh",
+		-- do 'sh install.sh 1' if you want to force compile locally
+		-- (instead of fetching a binary from the github release). Requires Rust >= 1.65
+
+		config = function()
+			require("sniprun").setup({
+				vim.api.nvim_set_keymap('v', '<Space>r', '<Plug>SnipRun<CR>', { silent = true }),
+				vim.api.nvim_set_keymap('n', '<Space>r', '<Plug>SnipRun<CR>', { silent = true }),
+				vim.api.nvim_set_keymap('n', '<Space>c', '<Plug>SnipClose<CR>', { silent = true }),
+				vim.api.nvim_set_keymap('n', '<Space>r', '<Plug>SnipRunOperator<CR>', { silent = true }),
+
+				display = {"Terminal"};
+			})
+		end,
+	},
 }

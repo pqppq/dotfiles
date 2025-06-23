@@ -486,5 +486,15 @@ return {
 				end
 			})
 		end
+	},
+	{
+		'dnlhc/glance.nvim',
+		cmd = 'Glance',
+		keys = {
+			{ "gld", mode = { "n" }, "<cmd>Glance definitions<CR>" },
+			{ "glr", mode = { "n" }, "<cmd>Glance references<CR>" },
+			{ "glt", mode = { "n" }, "<cmd>Glance type_definitions<CR>" },
+			{ "gli", mode = { "n" }, "<cmd>Glance implementations<CR>" },
+		},
 	}
 }

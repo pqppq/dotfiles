@@ -258,7 +258,7 @@ return {
 			{ "<Space>fs", "<cmd>Telescope current_buffer_fuzzy_find theme=dropdown<CR>" },
 			-- git
 			{ "<Space>gc", "<cmd>Telescope git_commits<CR>" },
-			{ "<Space>R", mode = { "v" }, "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>" },
+			{ "<Space>R",  mode = { "v" },                                               "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>" },
 		},
 		config = function()
 			require('telescope').setup {
@@ -439,22 +439,52 @@ return {
 				vim.api.nvim_set_keymap('n', '<Space>c', '<Plug>SnipClose<CR>', { silent = true }),
 				vim.api.nvim_set_keymap('n', '<Space>r', '<Plug>SnipRunOperator<CR>', { silent = true }),
 
-				display = {"Terminal"};
+				display = { "Terminal" },
 			})
 		end,
 	},
 	{
-  "shellRaining/hlchunk.nvim",
-  event = { "BufReadPre", "BufNewFile" },
-  config = function()
-		require("hlchunk").setup({
-			chunk = {
-				enable = true
-			},
-			indent = {
-				enable = true
-			}
-		})
-  end
-},
+		"shellRaining/hlchunk.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			require("hlchunk").setup({
+				chunk = {
+					enable = true
+				},
+				indent = {
+					enable = true
+				}
+			})
+		end
+	},
+	{
+		'kevinhwang91/nvim-ufo',
+		dependencies = { 'kevinhwang91/promise-async' },
+		config = function()
+			-- vim.o.foldcolumn = '1' -- '0' is not bad
+			vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+			vim.o.foldlevelstart = 99
+			vim.o.foldenable = true
+
+			vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+			vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
+			vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+			vim.keymap.set('n', 'zm', function()
+				local winid = vim.api.nvim_get_current_win()
+				local cursor = vim.api.nvim_win_get_cursor(winid)
+				local lnum = cursor[1]
+
+				local foldlevel = vim.fn.foldlevel(lnum)
+				if foldlevel > 0 then
+					vim.cmd(lnum .. "foldclose")
+				end
+			end)
+
+			require('ufo').setup({
+				provider_selector = function(bufnr, filetype, buftype)
+					return { 'treesitter', 'indent' }
+				end
+			})
+		end
+	}
 }
